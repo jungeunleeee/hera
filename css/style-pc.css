@@ -1,0 +1,5 @@
+div.content-box > ul > li {background-color: green;}
+div.content-box > ul > li::after {font-style: normal; font-weight: normal; font-family: "fontawesome";}
+div.content-box > ul > li:nth-child(1)::after {content:'\f3c5';}
+div.content-box > ul > li:nth-child(2)::after {content:'\f002'}
+div.content-box > ul > li:nth-child(3)::after {content: '\f007';}
