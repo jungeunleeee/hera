@@ -10,12 +10,15 @@
     <meta name="description" content="Hera 웹사이트" />
     <link href="./css/style-pc.css" rel="stylesheet" media="screen and (min-width : 1024px)" />
     <link href="./css/style-m.css" rel="stylesheet" media="screen and (max-width : 1023.9px)" />
+    <link rel="stylesheet" href="./fa/css/all.min.css" />
+
 
     <!-- 웹 폰트 -->
     <link href="//db.onlinewebfonts.com/c/f797b34c6bb4fdc383eaf58b6980ce02?family=entypo-fontello" rel="stylesheet"
         type="text/css" />
 
     <!-- js -->
+    <script src="./js/all.min.js"></script>
     <script src="https://kit.fontawesome.com/882832d0ff.js" crossorigin="anonymous"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/hera.js"></script>
@@ -25,15 +28,24 @@
     <div id="wrapper">
         <a href="#main" id="skip-nav">본문 바로가기</a>
 
-        <header id="header">
+        <header id="header" class="open" >
             <div class="content-box">
-                <h1><a href="#">HERA</a></h1>
+                <h1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 434 80" style="enable-background:new 0 0 434 80;" xml:space="preserve" class="logo-img svg replaced-svg" preserveAspectRatio="xMinYMin" focusable="false">
+                    <style type="text/css">
+                        .st0{fill:#13130A;}
+                    </style>
+                    <g>
+                        <path class="st0" d="M415.31,79.28h16.59L399.15,1.3l-15.96,0.02c0.94,2.68-0.7,7.88-2.46,12.42l-26.31,65.54h9.24l11.61-28.46   h28.46L415.31,79.28z M377.92,44.3l11.58-28.4l11.57,28.4H377.92z"></path>
+                        <path class="st0" d="M147.89,42.51h33.47v-5.59h-33.47V6.89h37.87V1.3L129.9,1.32c0,0,1.68,2.95,1.68,11.1V79.3h55.23v-5.58h-38.93   V42.51z"></path>
+                        <path class="st0" d="M54.34,36.92H19.89V1.32H1.9c0,0,1.68,2.95,1.68,11.1V79.3h16.31V43.18h34.45V79.3h16.31V1.32H54.34V36.92z"></path>
+                        <path class="st0" d="M282.01,40.81c3.46-1.1,7.02-2.74,10.39-5.25c12.05-9,9.04-24.34,1.06-29.42c-5.14-3.27-10.22-4.84-20.3-4.84   h-31.92c0,0,1.68,2.95,1.68,11.1v66.88h16.35V42.84h4.31c0.24,0,0.52,0,0.83,0.01c4.85,0.32,7.5,1.75,11.63,7.09l20.29,29.34h16.61   c0,0-21.68-30.13-23.48-32.46C287.92,44.81,285.47,41.85,282.01,40.81 M263.01,37.33h-3.74V6.75h3.52c5.76,0,14.18,0.07,18.5,6.51   c4.11,6.13,2.74,13.29-0.29,17.38C277.25,35.72,273.05,37.33,263.01,37.33"></path>
+                    </g>
+                    </svg></h1>
                 <nav id="nav">
                     <ul>
                         <li>
                             <a href="#">헤라 스토리</a>
                             <div class="box">
-                                <p><a href="#"></a></p>
                                 <ul>
                                     <li><a href="#">브랜드 스토리</a></li>
                                     <li><a href="#">헤라 스토리</a></li>
@@ -158,10 +170,10 @@
                         </li>
                     </ul>
                 </nav>
-                <ul>
-                    <li><a href="#">위치</a></li>
-                    <li><a href="#">검색</a></li>
-                    <li><a href="#">로그인</a></li>
+                <ul id="list">
+                    <li><a href="#"><i class="fa-solid fa-location-dot"><span>위치</span></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"><span>검색</span></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-user"><span>로그인</span></i></a></li>
                 </ul>
             </div>
         </header>
@@ -181,11 +193,13 @@
                                     <img src="img/main-v1.jpg" alt="New 센슈얼 피팅 글로우 틴트" class="pc" />
                                     <img src="img/main-v1-m.jpg" alt="New 센슈얼 피팅 글로우 틴트" class="mobile" />
                                     <div class="text">
-                                        <p class="first">GLOW, EVERYWHERE!</p>
-                                        <p class="second">
-                                            <span>NEW 센슈얼 글로우 틴트</span>
+                                        <div class="box">
+                                            <p class="first">GLOW, EVERYWHERE!</p>
+                                            <p class="second">
+                                                <span>NEW 센슈얼 글로우 틴트</span>
                                             <a href="#" class="btn">자세히 보기</a>
-                                        </p>
+                                            </p>
+                                        </div>
                                     </div>
                                 </li>
 
@@ -193,11 +207,13 @@
                                     <img src="img/main-v2.jpg" alt="헤라 X 더카트골프 UV 프로텍터 리미티드 에디션" class="pc" />
                                     <img src="img/main-v2-m.jpg" alt="헤라 X 더카트골프 UV 프로텍터 리미티드 에디션" class="mobile" />
                                     <div class="text">
-                                        <p class="first">MEMORY, NOT VICTORY!</p>
-                                        <p class="second">
-                                            <span>헤라 X 더카트골프 UV 프로텍터 리미티드 에디션</span>
-                                            <a href="#" class="btn">자세히 보기</a>
-                                        </p>
+                                        <div class="box">
+                                            <p class="first">MEMORY, NOT VICTORY!</p>
+                                            <p class="second">
+                                                <span>헤라 X 더카트골프 UV 프로텍터 리미티드 에디션</span>
+                                                <a href="#" class="btn">자세히 보기</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </li>
 
@@ -205,11 +221,13 @@
                                     <img src="img/main-v3.jpg" alt="블랙 쿠션" class="pc" />
                                     <img src="img/main-v3-m.jpg" alt="블랙 쿠션" class="mobile" />
                                     <div class="text">
-                                        <p class="first">본질에 가까운<br />내 피부같은 초밀착 커버</p>
-                                        <p class="second">
-                                            <span>블랙 쿠션</span>
-                                            <a href="#" class="btn">자세히 보기</a>
-                                        </p>
+                                        <div class="box">
+                                            <p class="first">본질에 가까운<br />내 피부같은 초밀착 커버</p>
+                                            <p class="second">
+                                                <span>블랙 쿠션</span>
+                                                <a href="#" class="btn">자세히 보기</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </li>
 
@@ -217,11 +235,13 @@
                                     <img src="img/main-v4.jpg" alt="NEW 실키 스테이 파운데이션" class="pc" />
                                     <img src="img/main-v4-m.jpg" alt="NEW 실키 스테이 파운데이션" class="mobile" />
                                     <div class="text">
-                                        <p class="first">처음 바른 피부결 그대로 가볍고 실키하게</p>
-                                        <p class="second">
-                                            <span>NEW 실키 스테이 파운데이션</span>
-                                            <a href="#" class="btn">자세히 보기</a>
-                                        </p>
+                                        <div class="box">
+                                            <p class="first">처음 바른 피부결 그대로 가볍고 실키하게</p>
+                                            <p class="second">
+                                                <span>NEW 실키 스테이 파운데이션</span>
+                                                <a href="#" class="btn">자세히 보기</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </li>
 
@@ -229,11 +249,13 @@
                                     <img src="img/main-v5.jpg" alt="NEW 센슈얼 파우더 매트 리퀴드" class="pc" />
                                     <img src="img/main-v5-m.jpg" alt="NEW 센슈얼 파우더 매트 리퀴드" class="mobile" />
                                     <div class="text">
-                                        <p class="first">가볍게 밀착되는 부드러운 사용감의 벨벳 틴트</p>
-                                        <p class="second">
-                                            <span>NEW 센슈얼 파우더 매트 리퀴드</span>
-                                            <a href="#" class="btn">자세히 보기</a>
-                                        </p>
+                                        <div class="box">
+                                            <p class="first">가볍게 밀착되는 부드러운 사용감의 벨벳 틴트</p>
+                                            <p class="second">
+                                                <span>NEW 센슈얼 파우더 매트 리퀴드</span>
+                                                <a href="#" class="btn">자세히 보기</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -244,14 +266,14 @@
                             <li><a href="#">3번 슬라이드</a></li>
                             <li><a href="#">4번 슬라이드</a></li>
                             <li><a href="#">5번 슬라이드</a></li>
+                            <li><a href="#" class="play">
+                                <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
+                                <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
+                            </a></li>
                         </ul>
                         <p class="control">
                             <a href="#" class="prev">이전 버튼</a>
                             <a href="#" class="next">다음 버튼</a>
-                            <a href="#" class="play">
-                                <i class="fas fa-play fa-fw"><span>타이머 시작</span></i>
-                                <i class="fas fa-pause fa-fw"><span>타이머 정지</span></i>
-                            </a>
                         </p>
                     </div>
                 </div>

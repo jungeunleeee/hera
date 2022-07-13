@@ -1,5 +1,103 @@
-div.content-box > ul > li {background-color: green;}
-div.content-box > ul > li::after {font-style: normal; font-weight: normal; font-family: "fontawesome";}
-div.content-box > ul > li:nth-child(1)::after {content:'\f3c5';}
-div.content-box > ul > li:nth-child(2)::after {content:'\f002'}
-div.content-box > ul > li:nth-child(3)::after {content: '\f007';}
+@charset "utf-8";
+/* pc */
+/* reset */
+html {-webkit-text-size-adjust: none; text-size-adjust: none;}
+body {background-color: yellow; margin: 0; }
+h1, ul, li, p, dl, dt, dd {margin: 0; padding:0;}
+img{ margin:0; padding: 0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; margin: 0;}
+a {color: inherit; text-decoration: inherit;}
+li {list-style: none;}
+address, em, i, cite {font-style: normal;}
+table {border-collapse: collapse;}
+table caption {overflow: hidden; width: 0; height: 0;}
+i[class^="fa"] {position: relative; display: inline-block; vertical-align: middle;}
+i[class^="fa"] span {position: absolute; left: -9999px;}
+.ir-hidden {position: absolute; left: -9999px;}
+.tablet,
+.mobile-tablet,
+.mobile {display: none !important;}
+br.only-m {content: '';}
+br.only-m::after {content: '\00a0';}
+
+/* common */
+body {font-family: 'NotoSansKR', sans-serif; font-size: 14px; color: #000000; background-color: #ffffff;}
+#wrapper {min-width: 1320px; max-width: 1920px; overflow: hidden; position: relative; margin: 0 auto;}
+#skip-nav {position: fixed; left: 0; top: -40px; width: 100%; line-height: 40px; text-align: center; background-color: rgba(0,0,0,0.8); color : #ffffff; font-size: 16px; transition: top 0.3s; z-index: 100000;} 
+#skip-nav:focus {top: 0;}
+
+/* header */
+#header {width: 100%; height: 64.5px; position: fixed; left: 0; top: 0; background:linear-gradient(#333 5%, rgba(51,51,51,0) 50%); border-bottom:0;opacity: 0.9; z-index: 100000;} 
+#header.open {background: #333; opacity: 1;}
+#header > div.content-box {width: 1280px; height: 100%; margin: 0 auto;  position: relative; box-sizing: border-box;}
+#header > div.content-box::after {display: block; clear: both; content: '';}
+#header > div.content-box > * {float: left;}
+#header > div.content-box > h1 {display: inline-block; height: 100%; line-height: 64.5px; }
+#header > div.content-box > h1 > svg{width: 104px; height: 18px; filter: invert(100%) sepia(71%) saturate(0%) hue-rotate(123deg) brightness(116%) contrast(100%);}
+#header > div.content-box > h1 > a {}
+
+#nav { z-index: 100000;}
+#nav > ul {overflow: hidden; margin-left: 36px;}
+#nav > ul > li {float: left;}
+#nav > ul > li + li {margin-left: 18px;}
+#nav > ul > li > a {display: block; font-size: 13.5px; text-align: center; padding: 23px 9px 19px 9px; z-index: 30; height: 100%; font-weight: 700; width: 100%; color: #fff; box-sizing: border-box;}
+#nav > ul > li > div.box {display: none; box-sizing: border-box;  width: 100%; padding: 40px 86px 50px; min-height: 300px; background:#fafafa; position: absolute; left: 0; top: 100%;}
+#nav > ul > li > div.box::after,
+#nav > ul > li > div.box::before {content:''; content:""; position:absolute; top:0px; left:100%; width:calc( 100vw - 100% ); height:100%; background:#fafafa; }
+#nav > ul > li > div.box::after {left:auto; right:100%;}
+#nav > ul > li > div.box > p {margin-bottom: 27px;}
+#nav > ul > li > div.box > p > a {font-size: 15px; line-height: 2; display: block; position: relative; display: inline-block; font-weight: 700; color: #000;  }
+#nav > ul > li > div.box > p > a::before {content: ''; position: absolute;left: 0;bottom: 0; width: 100%;height: 1px; background-color: transparent;-webkit-transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);-moz-transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);-ms-transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);-o-transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1)}
+#nav > ul > li > div.box > p:hover > a::before {width: 100%; background-color: #666;}
+#nav > ul > li > div.box > p > a::after {content: "\f054";font-style: normal;font-weight: normal; font-family: "Font Awesome 5 Free";margin-left: 8px;color: #000;font-weight: bold;font-size: 1rem}
+#nav > ul > li > div.box > ul { width: 76.35379%; margin-top: -6px;
+}
+#nav > ul > li > div.box > ul::after {content:''; display: block; clear: both;}
+#nav > ul > li > div.box > ul > li {float: left; width: 33.33%;}
+#nav > ul > li > div.box > ul > li > a {display: block; max-width: calc((850px/3) - 95px - 20px); padding-bottom: 8px; color: #333; font-weight: 700; font-size: 15px; position: relative;}
+#nav > ul > li > div.box > ul > li > a::before {content:''; width: 100%; height: 1px; position: absolute; left: 0; bottom: -1px; background-color: #f4f4f4; }
+#nav > ul > li > div.box > ul > li > a::after {content:''; width: 0%; height: 1px; position: absolute; left: 0; bottom: -1px; background: transparent; -webkit-transform: translateZ(0%);transform: translateZ(0%);-webkit-transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);}
+#nav > ul > li > div.box > ul > li:hover > a::after {width: 100%; background-color: #666;} 
+#nav > ul > li > div.box > ul > li > ul.list {}
+#nav > ul > li > div.box > ul > li > ul.list > li {}
+#nav > ul > li > div.box > ul > li > ul.list > li:first-child {margin-top: 8px;}
+#nav > ul > li > div.box > ul > li > ul.list > li > a {line-height: 2; color: #666; transition: all 0.5s; font-size: 13px;}
+#nav > ul > li > div.box > ul > li > ul.list > li:hover > a {color: #000;}
+
+#list {overflow: hidden; position: absolute; right: 0; top: 0; height: 100%;}
+#list > li {float: left; height: 100%; position: relative;}
+#list > li + li {margin-left: 8px;}
+#list > li > a {display: block; height: 100%; line-height: 64.5px; font-size: 18px; color: #fff;}
+
+
+/* main */
+#main {width: 100%;}
+#main-visual {max-width: 1920px; }
+#main-visual > div.content-box {position: relative;}
+#main-visual > div.content-box > div.image-slide {}
+#main-visual > div.content-box > div.image-slide > div.box {position: relative;}
+#main-visual > div.content-box > div.image-slide > div.box > p.dummy {opacity: 0    ;}
+#main-visual > div.content-box > div.image-slide > div.box > p.dummy > img {width: 100%;}
+#main-visual > div.content-box ul.image-slide {position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+#main-visual > div.content-box ul.image-slide > li {position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: none;}
+#main-visual > div.content-box ul.image-slide > li:nth-child(1) {display: block;}
+#main-visual > div.content-box ul.image-slide > li > img {width: 100%;}
+#main-visual > div.content-box ul.image-slide > li > div.text { max-width: 1280px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 1280px;}
+#main-visual > div.content-box ul.image-slide > li:nth-child(5) > div.text {overflow: hidden; }
+#main-visual > div.content-box ul.image-slide > li:nth-child(5) > div.text > div.box { float: right;}
+#main-visual > div.content-box ul.image-slide > li > div.text > div.box {width: 680px;}
+#main-visual > div.content-box ul.image-slide > li > div.text > div.box > p.first {font-size: 32px; font-weight: 700;}
+#main-visual > div.content-box ul.image-slide > li > div.text > div.box > p.second > span {display: block; margin-top: 11px; font-size: 16px; font-weight: 500;}
+#main-visual > div.content-box ul.image-slide > li > div.text > div.box > p.second > a {display: inline-block; padding: 9px 16px 13px; height: 36px; box-sizing: border-box; background-color: #000; color: #fff; font-size: 13px; margin-top: 13px; transition: all 0.5s; border: 1px solid #000;}
+#main-visual > div.content-box ul.image-slide > li > div.text > div.box > p.second > a:hover { border: 1px solid #000; color: #000; background-color: #fff;}
+
+
+#main-visual ul.indicator {background-color: skyblue; text-align: center; margin-top: 30px; position: absolute; left: 50%; transform: translateX(-50%); bottom: 37px;}
+#main-visual ul.indicator > li {display: inline-block; vertical-align: middle;}
+#main-visual ul.indicator > li + li {margin-left: 3px;}
+#main-visual ul.indicator > li > a {display: block; width: 12px; height: 12px; border-radius: 50px; background-color: pink; text-indent: -999px; overflow: hidden;}
+#main-visual p.control {width: 100%; height: 100%; position: absolute; left: 0; top: 0;}
+#main-visual p.control > a {position: absolute; top: 50%; transform: translate(0, -50%);width: 56px; height: 56px; background-color: green; display: block; border: 2px solid #000; transform: rotate(45deg);}
+#main-visual p.control > a::after {position: absolute; width: 100%; height: 100%; display: block; background-color: red;}
+#main-visual p.control > a.prev {left: -100px;}
+#main-visual p.control > a.next {right: -100px; left: auto;}
