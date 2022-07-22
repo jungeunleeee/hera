@@ -219,11 +219,23 @@ $(document).ready(function () {
 
     function showBanner(n) {
       offsetLeft = -$selector.find('.banner > li:eq(' + (n - 1) + ')').position().left;
-      if (offsetLeft < offsetLeftMin) offsetLeft = offsetLeftMin;
+      if (offsetLeft < offsetLeftMin) {
+        offsetLeft = offsetLeftMin;
+        $selector.find('.control a.next').css({'display' : 'none'});
+      } else {
+        $selector.find('.control a.next').css({'display' : 'block'});
+      }
       $selector.find('.banner').css({
         'transition': 'left 0.3s',
         'left': offsetLeft + 'px'
       });
+
+      if (offsetLeft === 0) {
+        $selector.find('.control a.prev').css({'display' : 'none'});
+      } else {
+        $selector.find('.control a.prev').css({'display' : 'block'});
+      }
+
 
       // 번호표시
       bannerNow = n;
