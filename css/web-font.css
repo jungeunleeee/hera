@@ -22,10 +22,40 @@
 
 @font-face {
   font-family: 'NotoSansKR';
+  font-style: medium;
+  font-weight: 600;
+  src: local('※'),
+      url('../font/NotoSansKR-Medium.otf') format('opentype'),
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
   font-style: normal;
   font-weight: 700;
   src: local('※'),
       url('../font/NotoSansKR-Bold.woff2') format('woff2'),
-      url('../font/NotoSansKR-Bold.woff') format('woff'),
-      url('../font/NotoSansKR-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: thin;
+  font-weight: 500;
+  src: local('※'),
+      url('../font/Montserrat-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: medium;
+  font-weight: 800;
+  src: local('※'),
+      url('../font/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  src: local('※'),
+      url('../font/Montserrat-Bold.ttf') format('truetype');
 }
