@@ -274,10 +274,6 @@ $(document).ready(function () {
     }
 
   }
-
-
-
-
 });
 
 

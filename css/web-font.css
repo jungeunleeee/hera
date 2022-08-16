@@ -1,9 +1,27 @@
 @charset "utf-8";
 
 @font-face {
+  font-family: 'Montserrat';
+  font-style: medium;
+  font-weight: 300;
+  src: local('※'),
+      url('../font/Montserrat-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: medium;
+  font-weight: 400;
+  src: local('※'),
+      url('../font/Montserrat-Bold.ttf') format('truetype');
+}
+
+
+@font-face {
   font-family: 'NotoSansKR';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 500;
   src: local('※'),
       url('../font/NotoSansKR-Light.woff2') format('woff2'),
       url('../font/NotoSansKR-Light.woff') format('woff'),
@@ -13,7 +31,7 @@
 @font-face {
   font-family: 'NotoSansKR';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   src: local('※'),
       url('../font/NotoSansKR-Regular.woff2') format('woff2'),
       url('../font/NotoSansKR-Regular.woff') format('woff'),
@@ -22,8 +40,8 @@
 
 @font-face {
   font-family: 'NotoSansKR';
-  font-style: medium;
-  font-weight: 600;
+  font-style: normal;
+  font-weight: 700;
   src: local('※'),
       url('../font/NotoSansKR-Medium.otf') format('opentype'),
 }
@@ -31,31 +49,9 @@
 @font-face {
   font-family: 'NotoSansKR';
   font-style: normal;
-  font-weight: 700;
-  src: local('※'),
-      url('../font/NotoSansKR-Bold.woff2') format('woff2'),
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: thin;
-  font-weight: 500;
-  src: local('※'),
-      url('../font/Montserrat-Thin.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: medium;
-  font-weight: 800;
-  src: local('※'),
-      url('../font/Montserrat-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
   font-weight: 900;
   src: local('※'),
-      url('../font/Montserrat-Bold.ttf') format('truetype');
+  url('../font/NotoSansKR-Bold.woff2') format('woff2'),
+  url('../font/NotoSansKR-Bold.woff') format('woff'),
+  url('../font/NotoSansKR-Bold.otf') format('opentype');
 }
