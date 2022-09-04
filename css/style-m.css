@@ -45,7 +45,7 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #header > div.content-box > #list > li > a.menu > span::before {content:''; width: 100%; height: 1px; background-color: #fff; position: absolute; left: 0; bottom: 8px;}
 
 /* #nav */
-#nav {position: fixed; right:0; width: 100%; top: 0; height: 100vh; background-color: #fff; z-index: 1000; overflow: auto; font-size: 15px; box-sizing: border-box;  transition: right 0.3s; font-family: 'Monsetrrat'; }
+#nav {position: fixed; right:-100%; width: 100%; top: 0; height: 100vh; background-color: #fff; z-index: 1000; overflow: auto; font-size: 15px; box-sizing: border-box;  transition: right 0.3s; font-family: 'Monsetrrat'; }
 #nav > div.header {border-bottom: 1px solid #d9d9d9;  padding: 0 20px;}
 #nav > div.header > div.content-box {height: 100%; margin: 0 auto;  position: relative; box-sizing: border-box;}
 #nav > div.header > div.content-box > h1 {height: 100%;}
