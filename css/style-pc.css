@@ -92,49 +92,46 @@ transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);}
 #list > li > a {display: block; height: 100%; line-height: 64.5px; font-size: 18px; color: #fff;}
 
 /* footer */
-#footer {padding: 30px 0 25px; border-top: 1px solid #efefef; background-color: #fafafa;}
-#footer > .sns {padding: 0 186px; text-align: center; background-color: red;}
+#footer {padding: 30px 0 25px; border-top: 1px solid #efefef; background-color: #fafafa; font-size: 14px; font-family: 'Montserrat'; font-size: 14px;}
+#footer > .sns {padding: 0 186px; text-align: center;}
 #footer > .sns > div.content-box {}
-#footer > .sns > div.content-box > ul.sns-list {background-color: skyblue;}
+
+/* footer: sns-list */
+#footer > .sns > div.content-box > ul.sns-list {}
 #footer > .sns > div.content-box > ul.sns-list > li {margin: 0 30px; display: inline-block;}
 #footer > .sns > div.content-box > ul.sns-list > li > a {display: block; width: 30px; height: 30px;}
 #footer > .sns > div.content-box > ul.sns-list > li > a > img {width: 100%;}
 
-#footer > .sns  div.service-box {}
-#footer > .sns  div.service-box > ul.service-list {background-color: green;}
-#footer > .sns  div.service-box > ul.service-list > li {display: inline-block; margin-right: 6px; padding-right: 10px; position: relative;}
-#footer > .sns  div.service-box > ul.service-list > li::after {content: ''; position: absolute; top: 0; right: 0; width: 1px; height: 11px; margin: auto; bottom: 0; background-color: #d9d9d9;}
-
-#footer ul.service-list > li > a {color: #666; font-size: 13px;}
-#footer > .sns > div.content-box > div.service-box > ul.service-list > li > a {}
-
-
-#footer > .sns  div.service-box> div.service {background-color: plum;}
+/* footer: service-list */
+#footer > .sns  div.service-box {background-color: #fff;  display: inline-block;} 
+#footer ul.service-list {display: inline-block;}
+#footer ul.service-list > li {display: inline-block; margin-right: 6px; padding-right: 10px; position: relative;}
+#footer ul.service-list > li::after {content: ''; position: absolute; top: 0; right: 0; width: 1px; height: 11px; margin: auto; bottom: 0; background-color: #d9d9d9;}
+#footer ul.service-list > li > a {color: #666; line-height: 1.5;}
 
 
 
+#footer .footer-dropdown {display: inline-block; position: relative; margin-top: 25px;}
+#footer .footer-dropdown > button {width: 286px; border: 0 none; text-align: left; line-height: 1.5; position: relative; display: block; padding: 0 30px 0 95px; margin: 0; box-sizing: border-box; font-size: 14px; transition: all 0.2s; background-color: #fafafa;}
+#footer .footer-dropdown > button::before {display: inline-block; content: "LANGUAGE";
+position: absolute; top: 50%; left: 5px;font-family: 'Montserrat', 'NotoSans'; font-weight: 300; transform: translateY(-50%);}
+#footer .footer-dropdown > button::after {content: ''; display: block; position: absolute; right: 5px; top: 50%; margin-top: -3px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #000;}
 
-#footer > .sns > ul.service-list {margin-top: 25px;}
-#footer > .sns > ul.service-list > li {display: inline-block; margin-right: 6px; padding-right: 10px; position: relative;}
-#footer > .sns > ul.service-list > li::after {content: ''; position: absolute; top: 0; right: 0; width: 1px; height: 11px; margin: auto; bottom: 0; background-color: #d9d9d9;}
-#footer > .sns > ul.service-list > li > a {color: #666; font-size: 13px;}
-#footer > .sns > ul.service-list > li:last-child {width: 286px; line-height: 1.5; position: relative; padding: 0 30px 0 95px; box-sizing: border-box; }
-#footer > .sns > ul.service-list > li:last-child::before {display: inline-block;
-content: 'LANGUAGE'; position: absolute; top: 50%; left: 5px; font-family: "NotoSansKR"; transform: translateY(-50%);}
-#footer > .sns > ul.service-list > li:last-child::after {content:'';     right: 5px; display: block;content: ''; position: absolute; top: 50%;  margin-top: -3px; width: 0; height: 0; border-left: 5px solid transparent;  border-right: 5px solid transparent;  border-top: 5px solid #333;} 
-#footer > .sns > ul.service-list > li > ul.lan-list {position: absolute; left: 0; top: auto; bottom: 0; margin-bottom: 30px; background-color: blue; width: 100%; border: 1px solid #333; box-shadow: 0 2px 2px rgb(0 0 0 / 15%); display: none;}
-#footer > .sns > ul.service-list > li > ul.lan-list > li + li {border-top: 1px solid #333;}
-#footer > .sns > ul.service-list > li > ul.lan-list > li > a {padding: 0 20px; font-size: 15px; display: block; width: 100%;line-height: 3; box-sizing: border-box; background-color: #fff;}
-#footer > .sns > ul.service-list > li > ul.lan-list > li.on > a {background-color: #333; color: #fff;}
-#footer > .sns > ul.service-list > li:last-child > a {}
+#footer .footer-dropdown-option {position: absolute; left: 0; bottom: 100%; width: 100%; border: 1px solid #333; box-sizing: border-box; box-shadow: 0 2px 2px rgb(0 0 0 / 15%);  }
+#footer .footer-dropdown-option > li {background-color: #fff;}
+#footer .footer-dropdown-option > li.on {background-color: #333;}
+#footer .footer-dropdown-option > li > a {display: block;  font-weight: 300; padding: 0 20p; line-height: 3;  }
+#footer .footer-dropdown-option > li.on > a {font-weight: 400; color: #fff;}
 
 
+#footer > .sns > div.copyright {font-weight: 300; color: #666; font-size: 12px; position: relative;  margin-top: 10px; background-color: skyblue;}
+#footer > .sns  > div.copyright > div.service {width: 100%; margin: 7px 0; }
+#footer > .sns  > div.copyright > div.service > p {font-weight: 300;box-sizing: border-box; color: #666;}
 
-
-#footer > .sns > div.service {margin: 7px; font-size: 14px; color: #666;}
-#footer > .sns > p.copyright {font-size: 13px; font-weight: 500; color: #666; position: relative;  display: inline-block; margin-top: 10px;}
-#footer > .sns > p.copyright > a {max-width: 50px; margin-left: 20px; position: absolute; right: -60px; top: 50%; transform: translateY(-50%);}
-#footer > .sns > p.copyright > a > img {width: 100%;}
+#footer > .sns  > div.copyright > div.small-box {overflow: hidden; display: inline-block;}
+#footer div.copyright > div.small-box > small {font-size: 12px; float: left;}
+#footer div.copyright > div.small-box  > a {max-width: 50px; margin-left: 20px; margin: 0 0  0 9px; display: inline-block;}
+#footer div.copyright > div.small-box  > a > img {width: 100%; float: left;}
 
 
 
@@ -293,10 +290,6 @@ section:not(:first-child) > div.content-box  p {padding: 20px 0 18px; color: #66
 /* sub-page: brandstory */
 body.sub #main {padding-top: 65px;}
 body.sub #main > section {}
-
-
-
-
 
 
 /* sub-page */

@@ -7,14 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover" />
   <meta name="apple-mobile-web-app-title" content="Hera" />
   <title>Hera</title>
+
+  <!-- css -->
   <meta name="description" content="Hera 웹사이트" />
   <link href="./css/style-pc.css" rel="stylesheet" media="screen and (min-width : 1024px)" />
   <link href="./css/style-m.css" rel="stylesheet" media="screen and (max-width : 1023.9px)" />
   <link href="./css/web-font.css" rel="stylesheet" />
 
+  <!-- 연결 css -->
   <link rel="stylesheet" href="./fa/css/all.min.css" />
   <link rel="stylesheet" href="./xe/css/xeicon.min.css" />
-
 
   <!-- 웹 폰트 -->
   <link href="//db.onlinewebfonts.com/c/f797b34c6bb4fdc383eaf58b6980ce02?family=entypo-fontello" rel="stylesheet"
@@ -77,7 +79,7 @@
                   </svg>
                 </a>
               </h1>
-              <ul id="list">
+              <ul id="list-mobile">
                 <li><a href="#"><span></span></a></li>
                 <li>
                   <a href="#">
@@ -611,7 +613,7 @@
     </main>
 
     <footer id="footer">
-      <section class="sns">
+      <section class="sns pc">
         <h3 class="ir-hidden">footer list</h3>
         <div class="content-box">
           <ul class="sns-list">
@@ -621,6 +623,7 @@
             <li><a href="#"><img src="img/sns_kakao_renew.png" alt="카카오채녈" /></a></li>
           </ul>
         </div>
+
         <div class="service-box">
           <ul class="service-list">
             <li><a href="#">서비스 이용약관</a></li>
@@ -630,10 +633,7 @@
             <li><a href="#">뷰티포인트</a></li>
             <li><a href="#">사이트맵</a></li>
           </ul>
-          <div class="service">
-            <p>고객상담팀(수신자요금부담) 080-023-5454<br class="mobile" /> (상담시간 월~금 : AM 09:00 ~ PM 06:00)</p>
-            <a href="#"><img src="img/footer-logo.png" alt="로고" /></a>
-          </div>
+
           <div class="footer-dropdown">
             <button class="footer-dropdown-selector"><span>한국/한국어</span></button>
             <ul class="footer-dropdown-option">
@@ -644,13 +644,88 @@
             </ul>
           </div>
         </div>
-        <p class="copyright"><strong>© AMOREPACIFIC CORPORATION.</strong> All rights reserved<a href="#"></a>
-        </p>
 
+        <div class="copyright">
+          <div class="service">
+            <p>고객상담팀(수신자요금부담) 080-023-5454<br class="mobile" /> (상담시간 월~금 : AM 09:00 ~ PM 06:00)</p>
+          </div>
+          <div class="small-box">
+            <small>© AMOREPACIFIC CORPORATION. All rights reserved.</small>
+            <a href="#" class="pc"><img src="img/footer-logo.png" alt="로고" /></a>
+          </div>
+          <a href="#" class="mobile"><img src="img/footer-logo.png" alt="로고" /></a>
+        </div>
+      </section>
+
+      <section class="sns mobile">
+        <h3 class="ir-hidden">footer list mobile</h3>
+        <div class="content-box">
+          <ul class="sns-list">
+            <li><a href="#"><img src="img/sns_facebook_renew.png" alt="페이스북" /></a></li>
+            <li><a href="#"><img src="img/sns_youtube_renew.png" alt="유투브" /></a></li>
+            <li><a href="#"><img src="img/sns_instagram_renew.png" alt="인스타그램" /></a></li>
+            <li><a href="#"><img src="img/sns_kakao_renew.png" alt="카카오채녈" /></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-quick-box">
+          <div class="small-box">
+            <p>
+              <span>@</span>
+              <strong>AMOREPACIFIC CORPORATION.</strong>
+              . All rights reserved.
+            </p>
+            <button class="footer-toggle-button"><span>푸터 정보 더보기</span></button>
+          </div>
+        </div>
+
+        <div class="more-footer">
+          <div class="footer-inner">
+            <ul class="service-list">
+              <li><a href="#">서비스 이용약관</a></li>
+              <li><a href="#">UGC 이용약관</a></li>
+              <li><a href="#">개인정보처리방침</a></li>
+              <li><a href="#">영상정보처리방침</a></li>
+              <li><a href="#">뷰티포인트</a></li>
+              <li><a href="#">사이트맵</a></li>
+            </ul>
+
+            <div class="service">
+              <p>고객상담팀(수신자요금부담) 080-023-5454<br class="mobile" /> (상담시간 월~금 : AM 09:00 ~ PM 06:00)</p>
+              <a href="#" class="mobile"><img src="img/footer-logo.png" alt="로고" /></a>
+            </div>
+
+            <div class="footer-dropdown">
+              <button class="footer-dropdown-selector"><span>한국/한국어</span></button>
+              <ul class="footer-dropdown-option">
+                <li><a href="#">한국/한국어</a></li>
+                <li><a href="#">INTERNATIONAL/ENGLISH</a></li>
+                <li><a href="#">중국어</a></li>
+                <li><a href="#">SINGAPORE/ENGLISH</a></li>
+              </ul>           
+            </div>
+
+          </div>
+        </div>
       </section>
     </footer>
   </div>
+  <script>
+    $('#footer .footer-dropdown > button ').on('click', function() {
+      $(this).toggleClass('on');
+      $('#footer .footer-dropdown-option').toggleClass('on');
+    });
 
+    $('#footer .footer-dropdown-option > li > a').on('click', function() {
+      $this = $(this);
+      if($('#footer > section').hasClass('mobile')) {
+        var index = $('#footer ul.footer-dropdown-option > li').index($this.parent());
+        console.log(index - 3);
+      } else {
+        return false;
+      }
+    });
+  </script>
 </body>
 
 </html>

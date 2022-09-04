@@ -45,7 +45,7 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #header > div.content-box > #list > li > a.menu > span::before {content:''; width: 100%; height: 1px; background-color: #fff; position: absolute; left: 0; bottom: 8px;}
 
 /* #nav */
-#nav {position: fixed; right:100%; width: 100%; top: 0; height: 100vh; background-color: #fff; z-index: 1000; overflow: auto; font-size: 15px; box-sizing: border-box;  transition: right 0.3s; font-family: 'Monsetrrat'; }
+#nav {position: fixed; right:0; width: 100%; top: 0; height: 100vh; background-color: #fff; z-index: 1000; overflow: auto; font-size: 15px; box-sizing: border-box;  transition: right 0.3s; font-family: 'Monsetrrat'; }
 #nav > div.header {border-bottom: 1px solid #d9d9d9;  padding: 0 20px;}
 #nav > div.header > div.content-box {height: 100%; margin: 0 auto;  position: relative; box-sizing: border-box;}
 #nav > div.header > div.content-box > h1 {height: 100%;}
@@ -53,14 +53,14 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #nav > div.header > div.content-box > h1 > a > svg{width: 115px; height: 16px;}
 
 
-#nav > div.header > div.content-box > #list {position: absolute; right: 0; top: 50%; transform: translateY(-50%); background-color: red;}
-#nav > div.header > div.content-box > #list > li {float: left;}
-#nav > div.header > div.content-box > #list > li + li {margin-left: 14px;}
-#nav > div.header > div.content-box > #list > li > a {display: block; position: relative;}
-#nav > div.header > div.content-box > #list > li > a > span {display: inline-block; width: 17px; height: 22px; background: url(../img/store.png) center center no-repeat; background-size: 17px auto; line-height: 10px; position: relative; top: 1px;}
-#nav > div.header > div.content-box > #list > li > a > i {font-size: 24px;}
-#nav > div.header > div.content-box > #list > li > a.menu {background-color: green;}
-#nav > div.header > div.content-box > #list > li > a.menu
+#nav > div.header > div.content-box > #list-mobile {position: absolute; right: 0; top: 50%; transform: translateY(-50%);}
+#nav > div.header > div.content-box > #list-mobile > li {float: left;}
+#nav > div.header > div.content-box > #list-mobile > li + li {margin-left: 14px;}
+#nav > div.header > div.content-box > #list-mobile > li > a {display: block; position: relative;}
+#nav > div.header > div.content-box > #list-mobile > li > a > span {display: inline-block; width: 17px; height: 22px; background: url(../img/store.png) center center no-repeat; background-size: 17px auto; line-height: 10px; position: relative; top: 1px;}
+#nav > div.header > div.content-box > #list-mobile > li > a > i {font-size: 24px;}
+#nav > div.header > div.content-box > #list-mobile > li > a.menu {background-color: green;}
+#nav > div.header > div.content-box > #list-mobile > li > a.menu
 /* #nav */
 #nav > ul {padding: 12px 0 0;}
 #nav > ul > li {} 
@@ -104,7 +104,7 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #nav > ul > li > div.box > div.nav-box > ul:not(:first-child) {padding: 0 0 15px;}
 #nav > ul > li > div.box > div.nav-box > ul > li {box-sizing: border-box; }
 #nav > ul > li > div.box > div.nav-box > ul > li:not(:last-child) { border-bottom:1px solid #e5e5e5;}
-#nav > ul > li > div.box > div.nav-box > ul > li > a {display: block; padding: 13px 10px; font-size: 16px; color: #333; font-weight: 800; position: relative; border-bottom:1px solid #e5e5e5;}
+#nav > ul > li > div.box > div.nav-box > ul > li > a {display: block; padding: 13px 10px; font-size: 16px; color: #333; font-weight: 600; position: relative; border-bottom:1px solid #e5e5e5; letter-spacing: -0.25px;}
 #nav > ul > li > div.box > div.nav-box > ul > li > a::after {content:''; position: absolute; top: 50%; transform: translateY(-50%) rotate(90deg); right: 0px; width: 14px; grid-template: 0; margin: auto; border: 1px solid#333;}
 #nav > ul > li > div.box > div.nav-box > ul > li > a::before {content: ''; position: absolute; top: 50%; transform: translateY(-50%); right: 0px; width: 14px; height: 0; margin: auto; border: 1px solid #333;}
 #nav > ul > li > div.box > div.nav-box > ul > li > ul.list {padding: 15px 0;}
@@ -123,43 +123,40 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #footer > .sns > div.content-box > ul.sns-list > li > a {display: block; width: 24px; height: 24px;}
 #footer > .sns > div.content-box > ul.sns-list > li > a > img {width: 100%;}
 
-#footer > .sns > p.copyright {font-size: 13px; font-weight: 400;}
-#footer > .sns > p.copyright > strong {background-color: green; font-weight: 700; font-size: 11px;}
+/* footer: footer-quick-box */
+#footer  div.footer-quick-box {width: 100%;}
+#footer  div.footer-quick-box > div.small-box {display: flex; justify-content: space-between; padding: 0 23px; box-sizing: border-box;}
+#footer  div.footer-quick-box > div.small-box > p {font-family: 'NotoSans'; position: relative;  height: 50px; box-sizing: border-box; font-size: 12px; font-weight: 400; line-height: 50px; color: #1c1c1c;}
+#footer  div.footer-quick-box > div.small-box > button {}
+#footer  div.footer-quick-box > div.small-box > button > span {position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);}
 
+/* footer: more-footer */
+#footer .more-footer {padding: 15px 23px 20px; box-sizing: border-box;}
+#footer .more-footer > div.footer-inner {}
+#footer .more-footer .service-list {text-align: left; margin-bottom: 18px;}
+#footer .more-footer .service-list > li {display: inline-block; margin-right: 6px; padding-right: 10px; position: relative;}
+#footer .more-footer .service-list > li > a {font-size: 12px; color: 1c1c1c; letter-spacing: -0.25px;}
 
-/* 
-#footer > .sns > p.copyright {font-size: 13px; font-weight: 500; color: #666; position: relative;  display: inline-block; margin-top: 10px;}
-#footer > .sns > p.copyright > a {max-width: 50px; margin-left: 20px; position: absolute; right: -60px; top: 50%; transform: translateY(-50%);}
-#footer > .sns > p.copyright > a > img {width: 100%;} */
+#footer .more-footer div.service {position: relative; text-align: left;}
+#footer .more-footer div.service > p {font-size: 12px; line-height: 1.8; letter-spacing: -0.25px;}
+#footer .more-footer div.service > a {position: absolute; right: 0; top: 50%; transform: translateY(-50%); max-width: 50px; margin: 0 0 0 9px;}
 
-#footer > .sns > div.service-box {padding: 15px 23px 20px; background-color: skyblue;}
+#footer .footer-dropdown {position: relative; margin-top: 30px;}
+#footer .footer-dropdown > button {position: relative;  width: 100%; height: 47px; padding: 0 17px; box-sizing: border-box; text-align: left; border: 1px solid #d8d8d8; }
+#footer .footer-dropdown > button::before {content: '';display: block; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 11px; height: 1px; background-color: #707070;}
+#footer .footer-dropdown > button::after {content: ''; display: block;position: absolute; right: 21px; top: 50%; transform: translateY(-50%); height: 11px; width: 1px; background-color: #707070; transition: transform .25s;}
+#footer .footer-dropdown > button.on::after {    transform: rotate(90deg) translateX(-5px);
+}
+#footer .footer-dropdown > button > span {font-size: 13px; font-weight: 700; color: #444;}
 
+#footer .footer-dropdown-option {width: 100%; border: 1px solid #333; box-sizing: border-box; box-shadow: 0 2px 2px rgb(0 0 0 / 15%); overflow: hidden; max-height: 0; transition: max-height 0.3s;}
+#footer .footer-dropdown-option.on {max-height: 500px;}
+#footer .footer-dropdown-option > li {background-color: #fff; text-align: left;}
+#footer .footer-dropdown-option > li + li {    border-top: 1px solid #d9d9d9;}
+#footer .footer-dropdown-option > li.on {background-color: #333;}
+#footer .footer-dropdown-option > li > a {display: block; padding: 0 20px;  font-size: 13px; font-weight: 300; line-height: 3;}
+#footer .footer-dropdown-option > li.on > a {font-weight: 400; color: #fff;}
 
-
-
-#footer > .sns  ul.service-list {background-color: red; text-align: left;}
-#footer > .sns  ul.service-list > li {display: inline-block; margin-right: 6px; padding-right: 10px; position: relative;}
-#footer > .sns  ul.service-list > li::after {content: ''; position: absolute; top: 0; right: 0; width: 1px; height: 11px; margin: auto; bottom: 0; background-color: #d9d9d9;}
-#footer > .sns  ul.service-list > li > a {color: #666; font-size: 12px; letter-spacing: -0.25px;}
-#footer > .sns  ul.service-list > li:last-child {width: 286px; line-height: 1.5; position: relative; padding: 0 30px 0 95px; box-sizing: border-box; }
-#footer > .sns  ul.service-list > li:last-child::before {    display: inline-block;
-content: 'LANGUAGE'; position: absolute; top: 50%; left: 5px; font-family: "Montserrat"; transform: translateY(-50%);}
-#footer > .sns  ul.service-list > li:last-child::after {content:'';     right: 5px; display: block;content: ''; position: absolute; top: 50%;  margin-top: -3px; width: 0; height: 0; border-left: 5px solid transparent;  border-right: 5px solid transparent;  border-top: 5px solid #333;} 
-#footer > .sns  ul.service-list > li > ul.lan-list {position: absolute; left: 0; top: auto; bottom: 0; margin-bottom: 30px; background-color: blue; width: 100%; border: 1px solid #333; box-shadow: 0 2px 2px rgb(0 0 0 / 15%); display: none;}
-#footer > .sns  ul.service-list > li > ul.lan-list > li + li {border-top: 1px solid #333;}
-#footer > .sns  ul.service-list > li > ul.lan-list > li > a {padding: 0 20px; font-size: 15px; display: block; width: 100%;line-height: 3; box-sizing: border-box; background-color: #fff;}
-#footer > .sns  ul.service-list > li > ul.lan-list > li.on > a {background-color: #333; color: #fff;}
-#footer > .sns  ul.service-list > li:last-child > a {}
-
-#footer > .sns  div.service {margin-top: 7px; font-size: 12px; color: #666; letter-spacing: -0.25px; background-color: green; text-align: left;}
-#footer > .sns  div.service::after {content:''; display: block; clear: both;}
-#footer > .sns  div.service > p {float: left; line-height: 1.5;}
-#footer > .sns  div.service > a  {float: right; display: block; max-width: 50px; }
-#footer > .sns  div.footer-dropdown {margin-top: 30px;}
-#footer > .sns  div.footer-dropdown > button {    display: flex; align-items: center; position: relative; height: 47px;width: 100%; box-sizing: border-box;
-border: 1px solid #d8d8d8; color: #444; font-weight: 400; font-size: 1.3rem;
-padding: 0 17px;}
-#footer > .sns  div.footer-dropdown > button >span {color: #444; font-size: 13px; font-weight: 400;}
 
 /* main */
 #main {width: 100%;}
@@ -235,7 +232,7 @@ padding: 0 17px;}
 #main-visual ul.indicator > li.on > a {width: 32px; transition: all 0.5s;}
 
 /* main-visual: controller */
-#main-visual p.control {z-index: 10000; background-color: red;} 
+#main-visual p.control {z-index: 10000;} 
 #main-visual p.control > a { position: absolute; top: 50%; transform: translate(0, -50%); width: 15px; height: 62px; display: block;  text-indent: -999px; overflow: hidden; padding: 10px;}
 #main-visual p.control > a.prev::before,
 #main-visual p.control > a.next::after
