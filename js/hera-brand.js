@@ -5,49 +5,29 @@ $(document).ready(function () {
   if($(document).scrollTop() === 0) {
     $('section:eq(0)').addClass('on');
   }
-
-
+  
   $(window).on('scroll', function() {
-
     checkVisibility('section');
-
   });
 
-
-  function checkVisibility(selector) {
-    $(selector).each(function () {
-      var $selector = $(this);
-      var scrollAmt = $(document).scrollTop(); //scroll bar의 현재 위치
-      var min = $selector.offset().top - ($(window).height() / 2);
-      var max = $selector.offset().top + ($(window).height() / 2);
-      console.log(min + ' ~ ' + max + ' : ' + scrollAmt);
-
-      if (scrollAmt > min && scrollAmt <= max) {
-        $selector.addClass('on');
-      } else {
-        $selector.removeClass('on');
-      }
-
-    });
-  }
-
-
-
-
-  // $(window).on('scroll', function() {
-  //     $(selector).each(function() {
-  //         var $selector = $(this);
-  //         var scrollTop = $(document).scrollTop();
-
-  //         if (scrollTop < $('section  '))
-  //     });
-  //     var scrollOffset = $(document).scrollTop();
-  //     console.log(scrollOffset);
-  // });
-
-
-
 });
+
+function checkVisibility(selector) {
+  $(selector).each(function () {
+    var $selector = $(this);
+    var scrollAmt = $(document).scrollTop(); //scroll bar의 현재 위치
+    var min = $selector.offset().top - ($(window).height() / 2);
+    var max = $selector.offset().top + ($(window).height() / 2);
+    console.log(min + ' ~ ' + max + ' : ' + scrollAmt);
+
+    if (scrollAmt > min && scrollAmt <= max) {
+      $selector.addClass('on');
+    } else {
+      $selector.removeClass('on');
+    }
+
+  });
+}
 
 
 
