@@ -710,22 +710,6 @@
       </section>
     </footer>
   </div>
-  <script>
-    $('#footer .footer-dropdown > button ').on('click', function() {
-      $(this).toggleClass('on');
-      $('#footer .footer-dropdown-option').toggleClass('on');
-    });
-
-    $('#footer .footer-dropdown-option > li > a').on('click', function() {
-      $this = $(this);
-      if($('#footer > section').hasClass('mobile')) {
-        var index = $('#footer ul.footer-dropdown-option > li').index($this.parent());
-        console.log(index - 3);
-      } else {
-        return false;
-      }
-    });
-  </script>
 </body>
 
 </html>

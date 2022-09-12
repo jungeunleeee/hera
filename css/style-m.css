@@ -59,7 +59,7 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #nav > div.header > div.content-box > #list-mobile > li > a {display: block; position: relative;}
 #nav > div.header > div.content-box > #list-mobile > li > a > span {display: inline-block; width: 17px; height: 22px; background: url(../img/store.png) center center no-repeat; background-size: 17px auto; line-height: 10px; position: relative; top: 1px;}
 #nav > div.header > div.content-box > #list-mobile > li > a > i {font-size: 24px;}
-#nav > div.header > div.content-box > #list-mobile > li > a.menu {background-color: green;}
+#nav > div.header > div.content-box > #list-mobile > li > a.menu {}
 #nav > div.header > div.content-box > #list-mobile > li > a.menu
 /* #nav */
 #nav > ul {padding: 12px 0 0;}
@@ -127,13 +127,17 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #footer  div.footer-quick-box {width: 100%;}
 #footer  div.footer-quick-box > div.small-box {display: flex; justify-content: space-between; padding: 0 23px; box-sizing: border-box;}
 #footer  div.footer-quick-box > div.small-box > p {font-family: 'NotoSans'; position: relative;  height: 50px; box-sizing: border-box; font-size: 12px; font-weight: 400; line-height: 50px; color: #1c1c1c;}
-#footer  div.footer-quick-box > div.small-box > button {}
-#footer  div.footer-quick-box > div.small-box > button > span {position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);}
+#footer  div.footer-quick-box > div.small-box > button > span {position: absolute; height: 1px; width: 1px; overflow: hidden;}
+#footer .footer-quick-box  button {border: 0px; position: relative; background-color: transparent;}
+#footer .footer-quick-box  button::after {content:''; display: block; width: 7px; height: 7px; 
+  margin-top: -5px;
+border-right: 1px solid #222; border-bottom: 1px solid #222; box-sizing: border-box; transform: rotate(45deg); transition: transform .25s;}
+#footer .footer-quick-box  button.on::after {transform: rotate(225deg); margin-top: 0;}
 
 /* footer: more-footer */
-#footer .more-footer {padding: 15px 23px 20px; box-sizing: border-box;}
-#footer .more-footer > div.footer-inner {}
-#footer .more-footer .service-list {text-align: left; margin-bottom: 18px;}
+#footer .more-footer {transition: height .5s; height: 0;}
+#footer .more-footer > div.footer-inner {padding: 15px 23px 20px; box-sizing: border-box;}
+#footer .more-footer .service-list {text-align: left; margin-bottom: 18px; height: 36px;}
 #footer .more-footer .service-list > li {display: inline-block; margin-right: 6px; padding-right: 10px; position: relative;}
 #footer .more-footer .service-list > li > a {font-size: 12px; color: 1c1c1c; letter-spacing: -0.25px;}
 
@@ -156,6 +160,8 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #footer .footer-dropdown-option > li.on {background-color: #333;}
 #footer .footer-dropdown-option > li > a {display: block; padding: 0 20px;  font-size: 13px; font-weight: 300; line-height: 3;}
 #footer .footer-dropdown-option > li.on > a {font-weight: 400; color: #fff;}
+
+
 
 
 /* main */
