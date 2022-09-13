@@ -288,14 +288,19 @@ function footerToggleButton() {
 
     // button.footer-toggle-button 에 on 이 붙으면
     if ($('#footer button.footer-toggle-button').hasClass('on') === true) {
+      // 높이 계산 반영
       $('#footer div.more-footer').css({
         'height': height + 'px'
       });
+      // 스크롤 자동 밑으로 이동
       $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+      
     } else {
       $('#footer div.more-footer').css({
         'height': 0 + 'px'
       });
+      $('#footer section.mobile .footer-dropdown-selector').removeClass('on');
+      $('#footer section.mobile  .footer-dropdown-option').removeClass('on');
     }
   });
 
@@ -330,6 +335,7 @@ function footerDropdown() {
         'height': (height - sumHeight) + 'px'
       });
     }
+
     $('#footer .footer-dropdown-option').toggleClass('on');
   });
 
