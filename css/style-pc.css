@@ -115,7 +115,7 @@ transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);}
 #footer > .sns > div.content-box > ul.sns-list > li > a > img {width: 100%;}
 
 /* footer: service-list */
-#footer > .sns  div.service-box {background-color: #fff;  display: inline-block;} 
+#footer > .sns  div.service-box { display: inline-block;} 
 #footer ul.service-list {display: inline-block;}
 #footer ul.service-list > li {display: inline-block; margin-right: 6px; padding-right: 10px; position: relative;}
 #footer ul.service-list > li::after {content: ''; position: absolute; top: 0; right: 0; width: 1px; height: 11px; margin: auto; bottom: 0; background-color: #d9d9d9;}
@@ -127,10 +127,12 @@ transition: all .4s cubic-bezier(0.39, 0.575, 0.565, 1);}
 #footer .footer-dropdown > button {width: 286px; border: 0 none; text-align: left; line-height: 1.5; position: relative; display: block; padding: 0 30px 0 95px; margin: 0; box-sizing: border-box; font-size: 14px; transition: all 0.2s; background-color: #fafafa;}
 #footer .footer-dropdown > button::before {display: inline-block; content: "LANGUAGE";
 position: absolute; top: 50%; left: 5px;font-family: 'Montserrat', 'NotoSans'; font-weight: 300; transform: translateY(-50%);}
-#footer .footer-dropdown > button::after {content: ''; display: block; position: absolute; right: 5px; top: 50%; margin-top: -3px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #000;}
+#footer .footer-dropdown > button::after {content: ''; display: block; position: absolute; right: 5px; top: 50%; margin-top: -3px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #000}
 
+#footer .footer-dropdown > button.on::after {content: ''; display: block; position: absolute; right: 5px; top: 50%; margin-top: -3px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 5px solid #000; border-top: transparent;}
 
-#footer .footer-dropdown-option {position: absolute; left: 0; bottom: 100%; width: 100%; border: 1px solid #333; box-sizing: border-box; box-shadow: 0 2px 2px rgb(0 0 0 / 15%);  }
+#footer .footer-dropdown-option {position: absolute; left: 0; bottom: 100%; width: 100%; border: 1px solid #333; box-sizing: border-box; box-shadow: 0 2px 2px rgb(0 0 0 / 15%); display: none;}
+#footer .footer-dropdown-option.on {display: block;}
 #footer .footer-dropdown-option > li {background-color: #fff;}
 #footer .footer-dropdown-option > li.on {background-color: #333;}
 #footer .footer-dropdown-option > li > a {display: block;  font-weight: 300; padding: 0 20p; line-height: 3;  }

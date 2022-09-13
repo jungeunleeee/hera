@@ -153,9 +153,11 @@ border-right: 1px solid #222; border-bottom: 1px solid #222; box-sizing: border-
 }
 #footer .footer-dropdown > button > span {font-size: 13px; font-weight: 700; color: #444;}
 
-#footer .footer-dropdown-option {width: 100%; border: 1px solid #333; box-sizing: border-box; box-shadow: 0 2px 2px rgb(0 0 0 / 15%); overflow: hidden; max-height: 0; transition: max-height 0.3s;}
+#footer .footer-dropdown-option {width: 100%;  box-sizing: border-box; box-shadow: 0 2px 2px rgb(0 0 0 / 15%); overflow: hidden; max-height: 0; transition: max-height 0.3s;}
 #footer .footer-dropdown-option.on {max-height: 500px;}
-#footer .footer-dropdown-option > li {background-color: #fff; text-align: left;}
+#footer .footer-dropdown-option > li {background-color: #fff; text-align: left; border-right:1px solid #333; border-left: 1px solid #333; box-sizing: border-box;}
+#footer .footer-dropdown-option > li:first-child {border-top: 1px solid #333;}
+#footer .footer-dropdown-option > li:last-child {border-bottom: 1px solid #333;}
 #footer .footer-dropdown-option > li + li {    border-top: 1px solid #d9d9d9;}
 #footer .footer-dropdown-option > li.on {background-color: #333;}
 #footer .footer-dropdown-option > li > a {display: block; padding: 0 20px;  font-size: 13px; font-weight: 300; line-height: 3;}
