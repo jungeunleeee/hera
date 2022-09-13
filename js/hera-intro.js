@@ -8,7 +8,6 @@ $(document).ready(function () {
   footerToggleButton();
   footerDropdown();
   footerLanguage();
-  // footerLanguagePc();
   resizeWindow();
 
 });
@@ -292,6 +291,7 @@ function footerToggleButton() {
       $('#footer div.more-footer').css({
         'height': height + 'px'
       });
+      $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     } else {
       $('#footer div.more-footer').css({
         'height': 0 + 'px'
@@ -324,6 +324,7 @@ function footerDropdown() {
       $('#footer div.more-footer').css({
         'height': (height + sumHeight) + 'px'
       });
+      $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     } else {
       $('#footer div.more-footer').css({
         'height': (height - sumHeight) + 'px'
