@@ -311,6 +311,9 @@ function navigation() {
           $('#nav > ul > li:eq(' + index + ') div.box').css({
             'height': 0
           });
+          $('#nav > ul > li:eq(' + index +') ul.list').css({
+            'height' : 0
+          });
         }
 
         // 2번째 창 열기
