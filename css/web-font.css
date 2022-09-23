@@ -1,41 +1,53 @@
 @charset "utf-8";
 
-/* @font-face {
+@font-face {
+  font-family: 'Montserrat';
+  font-style: medium;
+  font-weight: 100;
+  src: local('※'),
+      url('../font/Montserrat-Thin.woff2') format('woff2');
+}
+
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: medium;
+  font-weight: 200;
+  src: local('※'),
+      url('../font/Montserrat-Regular.woff2') format('woff2');
+}
+
+@font-face {
   font-family: 'Montserrat';
   font-style: medium;
   font-weight: 300;
-  src: local('※'),
-      url('../font/Montserrat-Regular.ttf') format('truetype');
+  src: local('※'),  
+      url('../font/Montserrat-Bold.woff2') format('woff2');
 }
-
 
 @font-face {
   font-family: 'Montserrat';
   font-style: medium;
   font-weight: 400;
-  src: local('※'),
-      url('../font/Montserrat-Bold.ttf') format('truetype');
-} */
-
+  src: local('※'),  
+      url('../font/Montserrat-SemiBold.woff') format('woff');
+}
 
 @font-face {
-  font-family: 'NotoSansKR';
-  font-style: normal;
+  font-family: 'Montserrat';
+  font-style: medium;
   font-weight: 500;
   src: local('※'),
-      url('../font/NotoSansKR-Light.woff2') format('woff2'),
-      url('../font/NotoSansKR-Light.woff') format('woff'),
-      url('../font/NotoSansKR-Light.otf') format('opentype');
+      url('../font/Montserrat-Black.woff2') format('woff2');
 }
+
 
 @font-face {
   font-family: 'NotoSansKR';
   font-style: normal;
   font-weight: 600;
   src: local('※'),
-      url('../font/NotoSansKR-Regular.woff2') format('woff2'),
-      url('../font/NotoSansKR-Regular.woff') format('woff'),
-      url('../font/NotoSansKR-Regular.otf') format('opentype');
+      url('../font/NotoSansKR-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -43,15 +55,6 @@
   font-style: normal;
   font-weight: 700;
   src: local('※'),
-      url('../font/NotoSansKR-Medium.otf') format('opentype'),
+      url('../font/NotoSansKR-Medium.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'NotoSansKR';
-  font-style: normal;
-  font-weight: 900;
-  src: local('※'),
-  url('../font/NotoSansKR-Bold.woff2') format('woff2'),
-  url('../font/NotoSansKR-Bold.woff') format('woff'),
-  url('../font/NotoSansKR-Bold.otf') format('opentype');
-}
