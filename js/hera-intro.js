@@ -364,6 +364,12 @@ function navigation() {
       // mobile nav 닫기
       $('#nav > div.header.mobile ul > li:eq(2) > a').on('click', function () {
         $('#nav').removeClass('on');
+        $('#nav > ul > li div.box').css({
+          'height': 0,
+        });
+        $('#nav > ul > li ul.list').css({
+          'height': 0,
+        });
       });
 
 
