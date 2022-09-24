@@ -330,8 +330,13 @@ function navMobile() {
       $('#nav > ul > li:eq(' + index + ') div.box').css({
         'height': sumBoxHeight + sumFigureHeight
       });
+      // 2 뎁스 창까지 다 열린 상태에서 1뎁스 클릭시 요소 닫기
 
       $('#nav > ul > li').removeClass('open');
+      $('#nav > ul > li ul.sub-nav > li').removeClass('open');
+      $('#nav > ul > li  ul.list').css({'height' : 0});
+
+
       if($('#nav > ul > li:eq('+index+') div.nav-box').outerHeight(true) > 0) {
         $('#nav > ul > li:eq(' + index + ')').addClass('open');
       } else return false;
@@ -354,7 +359,7 @@ function navMobile() {
         $('#nav > ul > li:eq('+ index +') ul.sub-nav > li').removeClass('open');
       }
 
-      // 2번째 창 열기
+      // 2번째 창 열기: 2 뎁스
       // ul.list > li 합 구야함.
       $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li > a').on('click', function () {
         var idx = $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li').index($(this).parent());
