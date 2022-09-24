@@ -64,8 +64,6 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #nav > div.header > div.content-box > #list-mobile > li > a.menu
 /* #nav */
 #nav > ul {padding: 12px 0 0;}
-#nav > ul > li {} 
-#nav > ul > li + li {margin-top: 10px;}
 
 
 
