@@ -9,7 +9,7 @@ $(document).ready(function () {
   footerDropdown();
   footerLanguage();
   resizeWindow();
-
+  resetPc();
 });
 
 function preventDefaultAnchor() {
@@ -244,201 +244,165 @@ function setBannerSlide(selector, first) {
 
 }
 
-// function navigation() {
-//   var windowWidth = $(window).width();
-//   if (windowWidth >= 1024) {
-//     console.log('성공');
-//     document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
-//       el.addEventListener('mouseover', function (e) {
-//         e.preventDefault();
-//         var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
-//         console.log(index);
-
-//         document.querySelectorAll('#nav > ul > li').forEach(function (el, i) {
-//           el.classList.remove('on');
-//         });
-//         document.querySelector('#nav > ul > li:nth-child(' + (index + 1) + ')').classList.add('on');
-
-//       });
-//     });
-//   } else {
-//     console.log('실패');
-//   }
-// }
-
-
 function navigation() {
   var windowWidth = $(window).width();
   if (windowWidth >= 1024) {
-    // pc버전일때 index구하는 법
-    document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
-      el.addEventListener('mouseover', function () {
-        var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
-        console.log(index);
-      });
-    });
+    console.log('pc화면');
+    navPc();
   } else {
-    // mobile버전일때 index구하는 법
-    document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        // 인덱스 구하기
-        var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
-        console.log(index + '지금 번호 알려줘');
-        console.log(index);
-        var sumBoxHeight = 0;
-        var sumFigureHeight;
-        // var sumFigureHeight = $('#nav div.figure').outerHeight(true);
+    console.log('mobile화면');
+    navMobile();
+  }
+}
 
-        $('#nav > ul > li:eq(' + index + ') div.box ul > li > a').each(function () {
-          sumBoxHeight = $('#nav > ul > li:eq(' + index + ') > div.box > div.nav-box').outerHeight(true);
-          console.log(sumBoxHeight + '/' + sumFigureHeight);
-          if (sumFigureHeight === undefined) {
-            sumFigureHeight = 0;
-          } else {
-            sumFigureHeight = $('#nav > ul > li:eq(' + index + ') > div.box > div.figure').outerHeight(true);
-          }
+
+function resetMobile() {
+  $('#nav').removeClass('on');
+  $('#nav > ul > li').removeAttr('class');
+  $('#nav ul.sub-nav > li').removeAttr('class');
+  $('#nav > ul > li div.box').removeAttr('style');
+  $('#nav > ul > li ul.list').removeAttr('style');
+}
+
+function resetPc() {
+  $('#nav > ul > li div.box').removeAttr('style');
+}
+
+
+function navPc() {
+  document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
+
+    // event: mouseover
+    el.addEventListener('mouseover', function () {
+      // 변수 선언
+      var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
+      console.log(index);
+
+      // 이벤트1 : 해당하는 box보여주기
+      document.querySelectorAll('#nav > ul > li').forEach(function (el, i) {
+        el.classList.remove('on');
+      });
+      document.querySelector('#nav > ul > li:nth-child(' + (index + 1) + ')').classList.add('on');
+      // header의 높이 줄이기
+      document.querySelector('header#header').classList.add('open');
+    });
+
+    // // event: mouseleave :: 마우스가 nav tag밖으로 나가면 취소
+    document.querySelector('#nav').addEventListener('mouseleave', function () {
+      document.querySelectorAll('#nav > ul > li').forEach(function (el, i) {
+        el.classList.remove('on');
+      });
+      // header 그대로
+      document.querySelector('header#header').classList.remove('open');
+    });
+  });
+}
+
+function navMobile() {
+  // mobile버전일때 index구하는 법
+  document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      // 인덱스 구하기
+      var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
+      console.log(index + '지금 번호 알려줘');
+      console.log(index);
+      var sumBoxHeight = 0;
+      var sumFigureHeight;
+
+
+
+      $('#nav > ul > li:eq(' + index + ') div.box ul > li > a').each(function () {
+        sumBoxHeight = $('#nav > ul > li:eq(' + index + ') > div.box > div.nav-box').outerHeight(true);
+        console.log(sumBoxHeight + '/' + sumFigureHeight);
+        if (sumFigureHeight === undefined) {
+          sumFigureHeight = 0;
+        } else {
+          sumFigureHeight = $('#nav > ul > li:eq(' + index + ') > div.box > div.figure').outerHeight(true);
+        }
+      });
+
+      $('#nav > ul > li div.box').css({
+        'height': 0,
+        'transition': 'height 0.5s'
+      });
+
+      $('#nav > ul > li:eq(' + index + ') div.box').css({
+        'height': sumBoxHeight + sumFigureHeight
+      });
+
+      $('#nav > ul > li').removeClass('open');
+      if($('#nav > ul > li:eq('+index+') div.nav-box').outerHeight(true) > 0) {
+        $('#nav > ul > li:eq(' + index + ')').addClass('open');
+      } else return false;
+
+
+
+
+      // 두번 클릭하면 원래 상태로 되돌아감
+      if ($('#nav > ul > li:eq(' + index + ') div.box').outerHeight(true) > 0) {
+        $('#nav > ul > li:eq(' + index + ') div.box').css({
+          'height': 0
         });
-        $('#nav > ul > li div.box').css({
+
+        $('#nav > ul > li:eq(' + index + ') ul.list').css({
+          'height': 0
+        });
+
+        $('#nav > ul > li:eq(' + index + ')').removeClass('open');
+
+        $('#nav > ul > li:eq('+ index +') ul.sub-nav > li').removeClass('open');
+      }
+
+      // 2번째 창 열기
+      // ul.list > li 합 구야함.
+      $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li > a').on('click', function () {
+        var idx = $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li').index($(this).parent());
+        var sumLiHeight = 0;
+
+        $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li:eq(' + idx + ') ul.list > li ').each(function () {
+          sumLiHeight += $(this).outerHeight(true);
+        });
+
+        $('#nav > ul > li  ul.sub-nav ul.list').css({
           'height': 0,
           'transition': 'height 0.5s'
         });
+
+        $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li:eq(' + idx + ') ul.list').css({
+          'height': sumLiHeight
+        });
+
+        $('#nav > ul > li:eq('+ index +') ul.sub-nav > li').removeClass('open');
+
+        $('#nav > ul > li:eq('+ index +') ul.sub-nav > li:eq('+ idx + ')').addClass('open');
+
         $('#nav > ul > li:eq(' + index + ') div.box').css({
-          'height': sumBoxHeight + sumFigureHeight
-        });
-
-        if ($('#nav > ul > li:eq(' + index + ') div.box').outerHeight(true) > 0) {
-          $('#nav > ul > li:eq(' + index + ') div.box').css({
-            'height': 0
-          });
-          $('#nav > ul > li:eq(' + index +') ul.list').css({
-            'height' : 0
-          });
-        }
-
-        // 2번째 창 열기
-        // ul.list > li 합 구야함.
-        $('#nav > ul > li:eq('+ index +') ul.sub-nav > li > a').on('click', function(){
-          var idx = $('#nav > ul > li:eq('+ index +') ul.sub-nav > li').index($(this).parent());
-          console.log(idx);
-          var sumLiHeight = 0;
-          $('#nav > ul > li:eq('+ index+') ul.sub-nav > li:eq('+ idx +') ul.list > li ').each(function() {
-            sumLiHeight += $(this).outerHeight(true);
-          });
-          console.log(sumLiHeight + '왜 ㅇ안나와');
-
-          $('#nav > ul > li  ul.sub-nav ul.list').css({
-            'height' : 0,
-            'transition' : 'height 0.5s'
-          });
-
-          $('#nav > ul > li:eq('+ index +') ul.sub-nav > li:eq('+idx +') ul.list').css({
-            'height' : sumLiHeight
-          });
-
-          $('#nav > ul > li:eq(' + index + ') div.box').css({
-            'height': sumBoxHeight + sumFigureHeight + sumLiHeight
-          });
-
-
-
-        });
-        // document.querySelectorAll('#nav div.nav-box ul.sub-nav > li > a').forEach(function (el, i) {
-        //   el.addEventListener('click', function (e) {
-        //     e.preventDefault();
-        //     var index = Array.from(document.querySelectorAll('#nav > ul > li div.box > div.nav-box ul.sub-nav > li:eq('+ index +') ')).indexOf(this);
-        //     console.log(index + ': small')
-        //   });
-        // });
-
-
-
-
-      });
-
-      // mobile nav 열기
-      $('#hamburger-button').on('click', function () {
-        $('#nav').addClass('on');
-      });
-
-      // mobile nav 닫기
-      $('#nav > div.header.mobile ul > li:eq(2) > a').on('click', function () {
-        $('#nav').removeClass('on');
-        $('#nav > ul > li div.box').css({
-          'height': 0,
-        });
-        $('#nav > ul > li ul.list').css({
-          'height': 0,
+          'height': sumBoxHeight + sumFigureHeight + sumLiHeight
         });
       });
-
-
-
 
     });
 
+    // mobile nav 열기
+    $('#hamburger-button').on('click', function () {
+      $('#nav').addClass('on');
+    });
 
-
-  }
-
-
-
-
-
-
-  // if (windowWidth >= 1024) {
-  //   document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
-
-  //     // event: mouseover
-  //     el.addEventListener('mouseover', function () {
-  //       // 변수 선언
-
-  //       var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
-  //       console.log(index);
-
-
-  //       // 이벤트1 : 해당하는 box보여주기
-  //       document.querySelectorAll('#nav > ul > li').forEach(function (el, i) {
-  //         el.classList.remove('on');
-  //       });
-  //       document.querySelector('#nav > ul > li:nth-child(' + (index + 1) + ')').classList.add('on');
-  //       // header의 높이 줄이기
-  //       document.querySelector('header#header').classList.add('open');
-  //     });
-
-  //     // // event: mouseleave :: 마우스가 nav tag밖으로 나가면 취소
-  //     document.querySelector('#nav').addEventListener('mouseleave', function () {
-  //       document.querySelectorAll('#nav > ul > li').forEach(function (el, i) {
-  //         el.classList.remove('on');
-  //       });
-  //       // header 그대로
-  //       document.querySelector('header#header').classList.remove('open');
-  //     });
-  //   });
-  // } else {
-  //   // mobile nav 열기
-  //   $('#hamburger-button').on('click', function(){
-  //     $('#nav').addClass('on');
-  //   });
-
-  //   // mobile nav 닫기
-  //   $('#nav > div.header.mobile ul > li:eq(2) > a').on('click', function() {
-  //     $('#nav').removeClass('on');
-  //   });
-
-  // }
+    // mobile nav 닫기
+    $('#nav > div.header.mobile ul > li:eq(2) > a').on('click', function () {
+      $('#nav').removeClass('on');
+      $('#nav > ul > li div.box').css({
+        'height': 0,
+      });
+      $('#nav > ul > li ul.list').css({
+        'height': 0,
+      });
+      $('#nav > ul > li').removeClass('open');
+      $('#nav ul.sub-nav > li').removeClass('open');
+    });
+  });
 }
-
-
-
-
-
-
-
-function calHeight() {
-  var height = $('#footer .footer-inner').innerHeight();
-}
-
 
 function footerToggleButton() {
 
@@ -523,6 +487,9 @@ function resizeWindow() {
   $(window).resize(function () {
     var windowWidth = $(window).width();
     if (windowWidth >= 1024) {
+      // header nav관련
+      resetMobile();
+      navPc();
       // footer 관련
       $('#footer button.footer-toggle-button').removeClass('on');
       $('#footer .more-footer').removeAttr('style');
@@ -530,6 +497,9 @@ function resizeWindow() {
       $('#footer section.mobile  .footer-dropdown-selector').removeClass('on');
       $('#footer section.mobile  .footer-dropdown-option > li').removeClass('on');
     } else {
+      // header nav관련
+      resetPc();
+      navMobile();
       // footer 관련
       // 변수 지정하기
       var height = $('#footer .footer-inner').innerHeight();
