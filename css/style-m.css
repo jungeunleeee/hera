@@ -116,6 +116,7 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #nav > ul > li > div.box > div.nav-box > ul > li > ul.list > li:last-child > a {padding-bottom: 30px; box-sizing: border-box;}
 #nav > ul > li > div.box > div.nav-box > ul > li > ul.list > li > a {display: block; padding: 6.5px 30px; font-size: 15px; color: #666; font-weight: 800;}
 #nav > ul > li > div.box > div.figure {}
+#nav > ul > li > div.box > div.figure > div.thumb {padding-bottom: 10px;}
 #nav > ul > li > div.box > div.figure > div.thumb > a > div.thumb-box > .image-box > img {width: 100%; height: auto;  display: block;}
 #nav > ul > li > div.box > div.figure > div.thumb > a > div.thumb-box > p {font-size: 14px; font-weight: 500; color: #666; margin: 14px 0;}
 
