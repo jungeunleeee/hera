@@ -246,8 +246,10 @@ function setNav() {
   var timerIdFocus = '';
   $('#gnb').on('mouseenter', function() {
     $('#header').addClass('open');
+    $('#bg').addClass('open');
   }).on('mouseleave', function() {
     $('#header').removeClass('open');
+    $('#bg').removeClass('open');
   });
 
   $('#gnb > ul > li').on('mouseenter focusin', function () {

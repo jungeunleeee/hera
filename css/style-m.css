@@ -63,7 +63,7 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #gnb > div.header > div.content-box > #list-mobile > li > a > span {display: inline-block; width: 17px; height: 22px; background: url(../img/store.png) center center no-repeat; background-size: 17px auto; line-height: 10px; position: relative; top: 1px;}
 #gnb > div.header > div.content-box > #list-mobile > li > a > i {font-size: 24px;}
 #gnb > div.header > div.content-box > #list-mobile > li > a.menu {}
-#gnb > div.header > div.content-box > #list-mobile > li > a.menu
+#gnb > div.header > div.content-box > #list-mobile > li > a.menu {}
 /* #gnb */
 #gnb > ul {padding: 12px 0 0;}
 #gnb > ul > li > a {font-size: 18px; color: #333; font-family: 'Monsetrrat'; font-weight: 900; display: block; padding: 10.5px 30px; position: relative;  border-bottom:1px solid #e5e5e5; box-sizing: border-box;}
