@@ -28,14 +28,14 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #skip-nav:focus {top: 0;}
 
 /* header */
-#header {width: 100%; height: 60px; position: fixed; left: 0; top: 0; background:linear-gradient(#333 10%, rgba(51,51,51,0) 100%); border-bottom:0;opacity: 1; z-index: 100000; box-sizing: border-box ;   padding: 0 20px;} 
+#header {width: 100%; height: 60px; position: fixed; left: 0; top: 0; background:linear-gradient(#333 10%, rgba(51,51,51,0) 100%); border-bottom:0;opacity: 1; z-index: 100000; box-sizing: border-box ;} 
 #header.open {background: #333; opacity: 1; height: 60px;}
-#header > div.content-box {height: 100%; margin: 0 auto;  position: relative; box-sizing: border-box;}
+#header > div.content-box {height: 100%; width: 100%; margin: 0 auto;  position: relative; box-sizing: border-box;  padding: 0 20px;}
 #header > div.content-box::after {display: block; clear: both; content: '';}
 #header > div.content-box > h1 {display: inline-block; height: 100%; line-height: 62px; width: 115px;}
 #header > div.content-box > h1 > a {display: block; width: 100%; height: 100%;} 
-#header > div.content-box > h1 > a > svg{height: 16px; filter: invert(100%) sepia(71%) saturate(0%) hue-rotate(123deg) brightness(116%) contrast(100%); position: absolute; left: 0; top: 50%; transform: translateY(-50%);}
-#header > div.content-box > #list {position: absolute; right: 0; top: 50%; transform: translateY(-50%);}
+#header > div.content-box > h1 > a > svg{height: 16px; filter: invert(100%) sepia(71%) saturate(0%) hue-rotate(123deg) brightness(116%) contrast(100%); }
+#header > div.content-box > #list {position: absolute; right: 20px; top: 50%; transform: translateY(-50%);}
 #header > div.content-box > #list > li {float: left;}
 #header > div.content-box > #list > li + li {margin-left: 20px;}
 #header > div.content-box > #list > li > a > i {font-size: 22px; color: #fff; position: relative; top: -2px;}
@@ -45,37 +45,35 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 #header > div.content-box > #list > li > a.menu > span::before {content:''; width: 100%; height: 1px; background-color: #fff; position: absolute; left: 0; bottom: 8px;}
 
 /* #nav */
-#nav {position: fixed; right:-100%; width: 100%; top: 0; height: 100vh; background-color: #fff; z-index: 1000; overflow: auto; font-size: 15px; box-sizing: border-box;  transition: right 0.3s; font-family: 'Monsetrrat'; }
-#nav.on {right: 0;}
-#nav > div.header {border-bottom: 1px solid #d9d9d9;  padding: 0 20px;}
-#nav > div.header > div.content-box {height: 100%; margin: 0 auto;  position: relative; box-sizing: border-box;}
-#nav > div.header > div.content-box > h1 {height: 100%;}
-#nav > div.header > div.content-box > h1 > a {width: 100%; display: block; position: relative;  height: 100%; color: #333; width: 130px; line-height: 60px; box-sizing: border-box; } 
-#nav > div.header > div.content-box > h1 > a > svg{width: 115px; height: 16px;}
+#gnb {position: absolute; right:-100%; width: 100%; top: 0; height: 100vh; background-color: #fff; z-index: 1000; overflow: auto; font-size: 15px; box-sizing: border-box;  transition: right 0.3s; font-family: 'Monsetrrat'; }
+#gnb.open {right: 0;}
+
+/* #gnb > div.header */
+#gnb > div.header {border-bottom: 1px solid #d9d9d9;  padding: 0 20px;}
+#gnb > div.header > div.content-box {height: 100%; margin: 0 auto;  position: relative; box-sizing: border-box;}
+#gnb > div.header > div.content-box > h1 {height: 100%;}
+#gnb > div.header > div.content-box > h1 > a {width: 100%; display: block; position: relative;  height: 100%; color: #333; width: 130px; line-height: 60px; box-sizing: border-box; } 
+#gnb > div.header > div.content-box > h1 > a > svg{width: 115px; height: 16px;}
 
 
-#nav > div.header > div.content-box > #list-mobile {position: absolute; right: 0; top: 50%; transform: translateY(-50%);}
-#nav > div.header > div.content-box > #list-mobile > li {float: left;}
-#nav > div.header > div.content-box > #list-mobile > li + li {margin-left: 14px;}
-#nav > div.header > div.content-box > #list-mobile > li > a {display: block; position: relative;}
-#nav > div.header > div.content-box > #list-mobile > li > a > span {display: inline-block; width: 17px; height: 22px; background: url(../img/store.png) center center no-repeat; background-size: 17px auto; line-height: 10px; position: relative; top: 1px;}
-#nav > div.header > div.content-box > #list-mobile > li > a > i {font-size: 24px;}
-#nav > div.header > div.content-box > #list-mobile > li > a.menu {}
-#nav > div.header > div.content-box > #list-mobile > li > a.menu
-/* #nav */
-#nav > ul {padding: 12px 0 0;}
-
-
-
-
-#nav > ul > li > a {font-size: 18px; color: #333; font-family: 'Monsetrrat'; font-weight: 900; display: block; padding: 10.5px 30px; position: relative;  border-bottom:1px solid #e5e5e5; box-sizing: border-box;}
-#nav > ul > li.open > a::after,
-#nav > ul > li.open > a::before {animation: moreButton3 1s ease 0s 1 normal forwards;} 
-#nav > ul > li.open > a {background-color: rgba(0, 0, 0, 0.098);}
-#nav > ul > li > a::after {content:''; position: absolute; top: 50%; transform: translateY(-50%) rotate(90deg); right: 30px; width: 14px; grid-template: 0; margin: auto; border: 1px solid#333;}
-#nav > ul > li > a::before {content: ''; position: absolute; top: 50%; transform: translateY(-50%); right: 30px; width: 14px; height: 0; margin: auto; border: 1px solid #333;}
-#nav > ul > li > a::after {animation: moreButton2 1s ease 0s 1 normal forwards;}
-#nav > ul > li > a::before {animation: moreButton1 1s ease 0s 1 normal forwards;}
+#gnb > div.header > div.content-box > #list-mobile {position: absolute; right: 0; top: 50%; transform: translateY(-50%);}
+#gnb > div.header > div.content-box > #list-mobile > li {float: left;}
+#gnb > div.header > div.content-box > #list-mobile > li + li {margin-left: 14px;}
+#gnb > div.header > div.content-box > #list-mobile > li > a {display: block; position: relative;}
+#gnb > div.header > div.content-box > #list-mobile > li > a > span {display: inline-block; width: 17px; height: 22px; background: url(../img/store.png) center center no-repeat; background-size: 17px auto; line-height: 10px; position: relative; top: 1px;}
+#gnb > div.header > div.content-box > #list-mobile > li > a > i {font-size: 24px;}
+#gnb > div.header > div.content-box > #list-mobile > li > a.menu {}
+#gnb > div.header > div.content-box > #list-mobile > li > a.menu
+/* #gnb */
+#gnb > ul {padding: 12px 0 0;}
+#gnb > ul > li > a {font-size: 18px; color: #333; font-family: 'Monsetrrat'; font-weight: 900; display: block; padding: 10.5px 30px; position: relative;  border-bottom:1px solid #e5e5e5; box-sizing: border-box;}
+#gnb > ul > li.open > a::after,
+#gnb > ul > li.open > a::before {animation: moreButton3 1s ease 0s 1 normal forwards;} 
+#gnb > ul > li.open > a {background-color: rgba(0, 0, 0, 0.098);}
+#gnb > ul > li > a::after {content:''; position: absolute; top: 50%; transform: translateY(-50%) rotate(90deg); right: 30px; width: 14px; grid-template: 0; margin: auto; border: 1px solid#333;}
+#gnb > ul > li > a::before {content: ''; position: absolute; top: 50%; transform: translateY(-50%); right: 30px; width: 14px; height: 0; margin: auto; border: 1px solid #333;}
+#gnb > ul > li > a::after {animation: moreButton2 1s ease 0s 1 normal forwards;}
+#gnb > ul > li > a::before {animation: moreButton1 1s ease 0s 1 normal forwards;}
 
 
 @keyframes moreButton1 {
@@ -95,28 +93,28 @@ body {font-family: 'Montserrat'; font-size: 14px; color: #333333; background: #f
 
 
 
-#nav > ul > li > div.box { background-color: #fafafa; height: 0; overflow: hidden;}
-#nav > ul > li:not(:first-child) > div.box {padding: 0 30px;}
-#nav > ul > li > div.box > div.nav-box > p {font-family: 'Monsetrrat'; border-bottom:1px solid #e5e5e5;}
-#nav > ul > li > div.box > div.nav-box > p > a {padding: 13px 10px; font-weight: 800; color: #000; display: block; font-size: 16px;}
-#nav > ul > li > div.box > div.nav-box > ul {padding: 0 30px;}
-#nav > ul > li > div.box > div.nav-box > ul:not(:first-child) {padding: 0 0 15px;}
-#nav > ul > li > div.box > div.nav-box > ul > li {box-sizing: border-box; }
-#nav > ul > li > div.box > div.nav-box > ul > li:not(:last-child) { border-bottom:1px solid #e5e5e5;}
-#nav > ul > li > div.box > div.nav-box > ul > li > a {display: block; padding: 13px 10px; font-size: 16px; color: #333; font-weight: 600; position: relative; border-bottom:1px solid #e5e5e5; letter-spacing: -0.25px;}
-#nav > ul > li > div.box > div.nav-box > ul > li > a::after {content:''; position: absolute; top: 50%; transform: translateY(-50%) rotate(90deg); right: 0px; width: 14px; grid-template: 0; margin: auto; border: 1px solid#333;}
-#nav > ul > li > div.box > div.nav-box > ul > li > a::before {content: ''; position: absolute; top: 50%; transform: translateY(-50%); right: 0px; width: 14px; height: 0; margin: auto; border: 1px solid #333;}
-#nav > ul > li > div.box > div.nav-box > ul > li.open > a::before,
-#nav > ul > li > div.box > div.nav-box > ul > li.open > a::after
+#gnb > ul > li > div.box { background-color: #fafafa; height: 0; overflow: hidden;}
+#gnb > ul > li:not(:first-child) > div.box {padding: 0 30px;}
+#gnb > ul > li > div.box > div.nav-box > p {font-family: 'Monsetrrat'; border-bottom:1px solid #e5e5e5;}
+#gnb > ul > li > div.box > div.nav-box > p > a {padding: 13px 10px; font-weight: 800; color: #000; display: block; font-size: 16px;}
+#gnb > ul > li > div.box > div.nav-box > ul {padding: 0 30px;}
+#gnb > ul > li > div.box > div.nav-box > ul:not(:first-child) {padding: 0 0 15px;}
+#gnb > ul > li > div.box > div.nav-box > ul > li {box-sizing: border-box; }
+#gnb > ul > li > div.box > div.nav-box > ul > li:not(:last-child) { border-bottom:1px solid #e5e5e5;}
+#gnb > ul > li > div.box > div.nav-box > ul > li > a {display: block; padding: 13px 10px; font-size: 16px; color: #333; font-weight: 600; position: relative; border-bottom:1px solid #e5e5e5; letter-spacing: -0.25px;}
+#gnb > ul > li > div.box > div.nav-box > ul > li > a::after {content:''; position: absolute; top: 50%; transform: translateY(-50%) rotate(90deg); right: 0px; width: 14px; grid-template: 0; margin: auto; border: 1px solid#333;}
+#gnb > ul > li > div.box > div.nav-box > ul > li > a::before {content: ''; position: absolute; top: 50%; transform: translateY(-50%); right: 0px; width: 14px; height: 0; margin: auto; border: 1px solid #333;}
+#gnb > ul > li > div.box > div.nav-box > ul > li.open > a::before,
+#gnb > ul > li > div.box > div.nav-box > ul > li.open > a::after
 {animation: moreButton3 1s ease 0s 1 normal forwards;} 
-#nav > ul > li > div.box > div.nav-box > ul > li > ul.list {height: 0; overflow: hidden;}
-#nav > ul > li > div.box > div.nav-box > ul > li > ul.list > li:first-child > a {padding-top: 30px; box-sizing: border-box;}
-#nav > ul > li > div.box > div.nav-box > ul > li > ul.list > li:last-child > a {padding-bottom: 30px; box-sizing: border-box;}
-#nav > ul > li > div.box > div.nav-box > ul > li > ul.list > li > a {display: block; padding: 6.5px 30px; font-size: 15px; color: #666; font-weight: 800;}
-#nav > ul > li > div.box > div.figure {}
-#nav > ul > li > div.box > div.figure > div.thumb {padding-bottom: 10px;}
-#nav > ul > li > div.box > div.figure > div.thumb > a > div.thumb-box > .image-box > img {width: 100%; height: auto;  display: block;}
-#nav > ul > li > div.box > div.figure > div.thumb > a > div.thumb-box > p {font-size: 14px; font-weight: 500; color: #666; margin: 14px 0;}
+#gnb > ul > li > div.box > div.nav-box > ul > li > ul.list {height: 0; overflow: hidden;}
+#gnb > ul > li > div.box > div.nav-box > ul > li > ul.list > li:first-child > a {padding-top: 30px; box-sizing: border-box;}
+#gnb > ul > li > div.box > div.nav-box > ul > li > ul.list > li:last-child > a {padding-bottom: 30px; box-sizing: border-box;}
+#gnb > ul > li > div.box > div.nav-box > ul > li > ul.list > li > a {display: block; padding: 6.5px 30px; font-size: 15px; color: #666; font-weight: 800;}
+#gnb > ul > li > div.box > div.figure {}
+#gnb > ul > li > div.box > div.figure > div.thumb {padding-bottom: 10px;}
+#gnb > ul > li > div.box > div.figure > div.thumb > a > div.thumb-box > .image-box > img {width: 100%; height: auto;  display: block;}
+#gnb > ul > li > div.box > div.figure > div.thumb > a > div.thumb-box > p {font-size: 14px; font-weight: 500; color: #666; margin: 14px 0;}
 
 /* footer */
 #footer {border-top: 1px solid #efefef; background-color: #fafafa;}

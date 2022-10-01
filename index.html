@@ -15,28 +15,23 @@
   <link href="./css/web-font.css" rel="stylesheet" />
 
   <!-- 연결 css -->
-  <link rel="stylesheet" href="./fa/css/all.min.css" />
-  <link rel="stylesheet" href="./xe/css/xeicon.min.css" />
-  <link rel="stylesheet" href="font/icon.woff" />
+  <link rel="stylesheet" href="fa/css/all.min.css" />
+  <link rel="stylesheet" href="xe/css/xeicon.min.css" />
 
   <!-- 웹 폰트 -->
-  <link href="//db.onlinewebfonts.com/c/f797b34c6bb4fdc383eaf58b6980ce02?family=entypo-fontello" rel="stylesheet"
-    type="text/css" />
 
   <!-- js -->
   <script src="./js/all.min.js"></script>
   <script src="https://kit.fontawesome.com/882832d0ff.js" crossorigin="anonymous"></script>
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/hera-intro.js"></script>
-  <!-- <script src="js/hera-common.js"></script>
-  <script src="js/hera.js"></script> -->
 </head>
 
 <body>
   <div id="wrapper">
     <a href="#main" id="skip-nav">본문 바로가기</a>
+    <div class="bg"></div>
     <header id="header">
-      <div class="bg"></div>
       <div class="content-box">
         <h1>
           <a href="#main">
@@ -58,7 +53,7 @@
             </svg>
           </a>
         </h1>
-        <nav id="nav">
+        <nav id="gnb">
           <div class="header mobile">
             <div class="content-box">
               <h1>
@@ -94,7 +89,7 @@
             </div>
           </div>
           <ul>
-            <li>
+            <li data-menu="hera-stroy">
               <a href="page/hera-brandstory.html">헤라 스토리</a>
               <div class="box">
                 <div class="nav-box">
@@ -298,6 +293,7 @@
             </li>
           </ul>
         </nav>
+
         <ul id="list">
           <li class="pc"><a href="#"><i class="fa-solid fa-location-dot"><span>위치</span></i></a></li>
           <li><a href="#"><i class="xi-search"><span>검색</span></i></a></li>

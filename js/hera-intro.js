@@ -4,12 +4,10 @@ $(document).ready(function () {
   scrollEvent();
   setImageSlide('#main-visual div.image-box', 1, true, 5000);
   setBannerSlide('div.banner-slide:eq(0)', 1);
-  navigation();
+  setNav();
   footerToggleButton();
   footerDropdown();
   footerLanguage();
-  resizeWindow();
-  resetPc();
 });
 
 function preventDefaultAnchor() {
@@ -244,145 +242,139 @@ function setBannerSlide(selector, first) {
 
 }
 
-function navigation() {
-  var windowWidth = $(window).width();
-  if (windowWidth >= 1024) {
-    console.log('pc화면');
-    navPc();
-  } else {
-    console.log('mobile화면');
-    navMobile();
-  }
-}
-
-
-function resetMobile() {
-  $('#nav').removeClass('on');
-  $('#nav > ul > li').removeAttr('class');
-  $('#nav ul.sub-nav > li').removeAttr('class');
-  $('#nav > ul > li div.box').removeAttr('style');
-  $('#nav > ul > li ul.list').removeAttr('style');
-}
-
-function resetPc() {
-  $('#nav > ul > li div.box').removeAttr('style');
-}
-
-
-function navPc() {
-  document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
-
-    // event: mouseover
-    el.addEventListener('mouseover', function () {
-      // 변수 선언
-      var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
-      console.log(index);
-
-      // 이벤트1 : 해당하는 box보여주기
-      document.querySelectorAll('#nav > ul > li').forEach(function (el, i) {
-        el.classList.remove('on');
-      });
-      document.querySelector('#nav > ul > li:nth-child(' + (index + 1) + ')').classList.add('on');
-      // header의 높이 줄이기
-      document.querySelector('header#header').classList.add('open');
-    });
-
-    // // event: mouseleave :: 마우스가 nav tag밖으로 나가면 취소
-    document.querySelector('#nav').addEventListener('mouseleave', function () {
-      document.querySelectorAll('#nav > ul > li').forEach(function (el, i) {
-        el.classList.remove('on');
-      });
-      // header 그대로
-      document.querySelector('header#header').classList.remove('open');
-    });
+function setNav() {
+  var timerIdFocus = '';
+  $('#gnb').on('mouseenter', function() {
+    $('#header').addClass('open');
+  }).on('mouseleave', function() {
+    $('#header').removeClass('open');
   });
-}
 
-function navMobile() {
+  $('#gnb > ul > li').on('mouseenter focusin', function () {
+    if ($(window).width() < 1024) return false;
+    var index = $('#gnb > ul > li').index($(this));
+    clearTimeout(timerIdFocus);
+    showSub(index + 1);
+  }).on('mouseleave focusout', function () {
+    if ($(window).width() < 1024) return false;
+    timerIdFocus = setTimeout(function () {
+      removeAll();
+    }, 100);
+  });
+
+  function showSub(n) {
+    var $target = $('#gnb > ul > li:eq(' + (n - 1) + ')');
+    var heightNew = 0;
+    $target.find('div.box > *').each(function () {
+      heightNew += $(this).outerHeight(true);
+    });
+
+    // 주변 GNB 닫은 후 표시
+    $target.siblings().removeClass('open');
+    $target.siblings().find('div.box').addClass('open');
+    $target.addClass('open');
+  }
+
+  // 모든 서브메뉴 제거
+  function removeAll() {
+    $('#gnb > ul > li').removeClass('open');
+  }
+
+
+  // 모바일용 UI
+  $('#header a#hamburger-button').on('click', function () {
+    $('#gnb').addClass('open');
+  });
+
+  $('#list-mobile > li:eq(2)').on('click', function () {
+    $('#gnb').removeClass('open');
+  });
+
   // mobile버전일때 index구하는 법
-  document.querySelectorAll('#nav > ul > li > a').forEach(function (el, i) {
+  document.querySelectorAll('#gnb > ul > li > a').forEach(function (el, i) {
     el.addEventListener('click', function (e) {
       e.preventDefault();
       // 인덱스 구하기
-      var index = Array.from(document.querySelectorAll('#nav > ul > li > a')).indexOf(this);
+      var index = Array.from(document.querySelectorAll('#gnb > ul > li > a')).indexOf(this);
       console.log(index + '지금 번호 알려줘');
       console.log(index);
       var sumBoxHeight = 0;
       var sumFigureHeight;
 
-
-
-      $('#nav > ul > li:eq(' + index + ') div.box ul > li > a').each(function () {
-        sumBoxHeight = $('#nav > ul > li:eq(' + index + ') > div.box > div.nav-box').outerHeight(true);
+      $('#gnb > ul > li:eq(' + index + ') div.box ul > li > a').each(function () {
+        sumBoxHeight = $('#gnb > ul > li:eq(' + index + ') > div.box > div.nav-box').outerHeight(true);
         console.log(sumBoxHeight + '/' + sumFigureHeight);
         if (sumFigureHeight === undefined) {
           sumFigureHeight = 0;
         } else {
-          sumFigureHeight = $('#nav > ul > li:eq(' + index + ') > div.box > div.figure').outerHeight(true);
+          sumFigureHeight = $('#gnb > ul > li:eq(' + index + ') > div.box > div.figure').outerHeight(true);
         }
       });
 
-      $('#nav > ul > li div.box').css({
+      $('#gnb > ul > li div.box').css({
         'height': 0,
         'transition': 'height 0.5s'
       });
 
-      $('#nav > ul > li:eq(' + index + ') div.box').css({
+      $('#gnb > ul > li:eq(' + index + ') div.box').css({
         'height': sumBoxHeight + sumFigureHeight
       });
+
       // 2 뎁스 창까지 다 열린 상태에서 1뎁스 클릭시 요소 닫기
 
-      $('#nav > ul > li').removeClass('open');
-      $('#nav > ul > li ul.sub-nav > li').removeClass('open');
-      $('#nav > ul > li  ul.list').css({'height' : 0});
+      $('#gnb > ul > li').removeClass('open');
+      $('#gnb > ul > li ul.sub-nav > li').removeClass('open');
+      $('#gnb > ul > li  ul.list').css({
+        'height': 0
+      });
 
 
-      if($('#nav > ul > li:eq('+index+') div.nav-box').outerHeight(true) > 0) {
-        $('#nav > ul > li:eq(' + index + ')').addClass('open');
+      if ($('#gnb > ul > li:eq(' + index + ') div.nav-box').outerHeight(true) > 0) {
+        $('#gnb > ul > li:eq(' + index + ')').addClass('open');
       } else return false;
 
 
 
 
       // 두번 클릭하면 원래 상태로 되돌아감
-      if ($('#nav > ul > li:eq(' + index + ') div.box').outerHeight(true) > 0) {
-        $('#nav > ul > li:eq(' + index + ') div.box').css({
+      if ($('#gnb > ul > li:eq(' + index + ') div.box').outerHeight(true) > 0) {
+        $('#gnb > ul > li:eq(' + index + ') div.box').css({
           'height': 0
         });
 
-        $('#nav > ul > li:eq(' + index + ') ul.list').css({
+        $('#gnb > ul > li:eq(' + index + ') ul.list').css({
           'height': 0
         });
 
-        $('#nav > ul > li:eq(' + index + ')').removeClass('open');
+        $('#gnb > ul > li:eq(' + index + ')').removeClass('open');
 
-        $('#nav > ul > li:eq('+ index +') ul.sub-nav > li').removeClass('open');
+        $('#gnb > ul > li:eq(' + index + ') ul.sub-nav > li').removeClass('open');
       }
 
       // 2번째 창 열기: 2 뎁스
       // ul.list > li 합 구야함.
-      $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li > a').on('click', function () {
-        var idx = $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li').index($(this).parent());
+      $('#gnb > ul > li:eq(' + index + ') ul.sub-nav > li > a').on('click', function () {
+        var idx = $('#gnb > ul > li:eq(' + index + ') ul.sub-nav > li').index($(this).parent());
         var sumLiHeight = 0;
 
-        $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li:eq(' + idx + ') ul.list > li ').each(function () {
+        $('#gnb > ul > li:eq(' + index + ') ul.sub-nav > li:eq(' + idx + ') ul.list > li ').each(function () {
           sumLiHeight += $(this).outerHeight(true);
         });
 
-        $('#nav > ul > li  ul.sub-nav ul.list').css({
+        $('#gnb > ul > li  ul.sub-nav ul.list').css({
           'height': 0,
           'transition': 'height 0.5s'
         });
 
-        $('#nav > ul > li:eq(' + index + ') ul.sub-nav > li:eq(' + idx + ') ul.list').css({
+        $('#gnb > ul > li:eq(' + index + ') ul.sub-nav > li:eq(' + idx + ') ul.list').css({
           'height': sumLiHeight
         });
 
-        $('#nav > ul > li:eq('+ index +') ul.sub-nav > li').removeClass('open');
+        $('#gnb > ul > li:eq(' + index + ') ul.sub-nav > li').removeClass('open');
 
-        $('#nav > ul > li:eq('+ index +') ul.sub-nav > li:eq('+ idx + ')').addClass('open');
+        $('#gnb > ul > li:eq(' + index + ') ul.sub-nav > li:eq(' + idx + ')').addClass('open');
 
-        $('#nav > ul > li:eq(' + index + ') div.box').css({
+        $('#gnb > ul > li:eq(' + index + ') div.box').css({
           'height': sumBoxHeight + sumFigureHeight + sumLiHeight
         });
       });
@@ -391,20 +383,20 @@ function navMobile() {
 
     // mobile nav 열기
     $('#hamburger-button').on('click', function () {
-      $('#nav').addClass('on');
+      $('#gnb').addClass('on');
     });
 
     // mobile nav 닫기
-    $('#nav > div.header.mobile ul > li:eq(2) > a').on('click', function () {
-      $('#nav').removeClass('on');
-      $('#nav > ul > li div.box').css({
+    $('#gnb > div.header.mobile ul > li:eq(2) > a').on('click', function () {
+      $('#gnb').removeClass('on');
+      $('#gnb > ul > li div.box').css({
         'height': 0,
       });
-      $('#nav > ul > li ul.list').css({
+      $('#gnb > ul > li ul.list').css({
         'height': 0,
       });
-      $('#nav > ul > li').removeClass('open');
-      $('#nav ul.sub-nav > li').removeClass('open');
+      $('#gnb > ul > li').removeClass('open');
+      $('#gnb ul.sub-nav > li').removeClass('open');
     });
   });
 }
@@ -437,6 +429,18 @@ function footerToggleButton() {
     }
   });
 
+}
+
+function resetMobile() {
+  $('#gnb').removeClass('open');
+  $('#gnb > ul > li').removeAttr('class');
+  $('#gnb ul.sub-nav > li').removeAttr('class');
+  $('#gnb > ul > li div.box').removeAttr('style');
+  $('#gnb > ul > li ul.list').removeAttr('style');
+}
+
+function resetPc() {
+  $('#gnb > ul > li div.box').removeAttr('style');
 }
 
 function footerDropdown() {
@@ -488,37 +492,39 @@ function footerLanguage() {
   });
 }
 
-function resizeWindow() {
-  $(window).resize(function () {
-    var windowWidth = $(window).width();
-    if (windowWidth >= 1024) {
-      // header nav관련
-      resetMobile();
-      navPc();
-      // footer 관련
-      $('#footer button.footer-toggle-button').removeClass('on');
-      $('#footer .more-footer').removeAttr('style');
-      $('#footer section.mobile .footer-dropdown-option').removeClass('on');
-      $('#footer section.mobile  .footer-dropdown-selector').removeClass('on');
-      $('#footer section.mobile  .footer-dropdown-option > li').removeClass('on');
-    } else {
-      // header nav관련
-      resetPc();
-      navMobile();
-      // footer 관련
-      // 변수 지정하기
-      var height = $('#footer .footer-inner').innerHeight();
-      console.log(height + ": 제발..");
-      $('#footer button.footer-toggle-button').removeClass('on');
-      $('#footer .more-footer').removeAttr('style');
-      if ($('#footer button.footer-toggle-button').hasClass('on') === true) {
-        $(this).css({
-          'height': height + 'px'
-        });
-      }
-      $('#footer section.pc .footer-dropdown-option').removeClass('on');
-      $('#footer section.pc  .footer-dropdown-selector').removeClass('on');
-      $('#footer section.pc  .footer-dropdown-option > li').removeClass('on');
+
+$(window).resize(function () {
+  setGnb();
+
+});
+
+function setGnb() {
+  var windowWidth = $(window).width();
+  if (windowWidth >= 1024) {
+    // header nav관련
+    resetMobile();
+    // footer 관련
+    $('#footer button.footer-toggle-button').removeClass('on');
+    $('#footer .more-footer').removeAttr('style');
+    $('#footer section.mobile .footer-dropdown-option').removeClass('on');
+    $('#footer section.mobile  .footer-dropdown-selector').removeClass('on');
+    $('#footer section.mobile  .footer-dropdown-option > li').removeClass('on');
+  } else {
+    // header nav관련
+    resetPc();
+    // footer 관련
+    // 변수 지정하기
+    var height = $('#footer .footer-inner').innerHeight();
+    console.log(height + ": 제발..");
+    $('#footer button.footer-toggle-button').removeClass('on');
+    $('#footer .more-footer').removeAttr('style');
+    if ($('#footer button.footer-toggle-button').hasClass('on') === true) {
+      $(this).css({
+        'height': height + 'px'
+      });
     }
-  });
+    $('#footer section.pc .footer-dropdown-option').removeClass('on');
+    $('#footer section.pc  .footer-dropdown-selector').removeClass('on');
+    $('#footer section.pc  .footer-dropdown-option > li').removeClass('on');
+  }
 }
