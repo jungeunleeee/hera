@@ -24,7 +24,11 @@ function scrollEvent() {
 
     // method: scrollTop이 0이라면 open 떼고 아니면 붙이기
     if (scrollLocation === 0) {
-      element.classList.remove('open');
+      if ($('#gnb > ul > li').hasClass('open')=== true) {
+        element.classList.add('open');
+      } else {
+        element.classList.remove('open');
+      }
     } else {
       element.classList.add('open');
     }
