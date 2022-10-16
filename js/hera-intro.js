@@ -250,10 +250,8 @@ function setNav() {
   var timerIdFocus = '';
   $('#gnb').on('mouseenter', function() {
     $('#header').addClass('open');
-    $('#bg').addClass('open');
   }).on('mouseleave', function() {
     $('#header').removeClass('open');
-    $('#bg').removeClass('open');
   });
 
   $('#gnb > ul > li').on('mouseenter focusin', function () {
@@ -261,11 +259,13 @@ function setNav() {
     var index = $('#gnb > ul > li').index($(this));
     clearTimeout(timerIdFocus);
     showSub(index + 1);
+    $('#bg').addClass('open');
   }).on('mouseleave focusout', function () {
     if ($(window).width() < 1024) return false;
     timerIdFocus = setTimeout(function () {
       removeAll();
     }, 100);
+    $('#bg').removeClass('open');
   });
 
   function showSub(n) {
